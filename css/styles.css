@@ -2,8 +2,8 @@
   background-color: #20cc7a;
   text-align: center;
   margin-top: 10px;
-  padding: 5px 10px;
   border-radius: 10px;
+  padding: 3px;
   font-family: 'rationale', sans-serif;
 }
 
@@ -14,12 +14,19 @@
   font-family: 'rationale', sans-serif;
   font-size: 24px;
   margin-top: 10px;
-  padding: 10px 15px;
+  padding: 5px 20px;
   border-radius: 10px;
+  border: none;
 }
 
 .yt-player {
   margin-top: 15px;
   justify-content: center;
   display: flex;
+}
+
+.news {
+  text-align: center;
+  font-family: 'rationale', sans-serif;
+  font-size: 2rem;
 }
