@@ -1,0 +1,25 @@
+.alert {
+  background-color: #20cc7a;
+  text-align: center;
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-family: 'rationale', sans-serif;
+}
+
+.yt-close {
+  background-color: #f41515;
+  position: relative;
+  left: 47%;
+  font-family: 'rationale', sans-serif;
+  font-size: 24px;
+  margin-top: 10px;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.yt-player {
+  margin-top: 15px;
+  justify-content: center;
+  display: flex;
+}

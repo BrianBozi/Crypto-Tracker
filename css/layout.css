@@ -1,0 +1,20 @@
+header {
+  color: #20cc7a;
+  font-family: 'Rationale', sans-serif;
+  font-size: 48px;
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.search-bar {
+  position: relative;
+  left: 80%;
+}
+
+.top-line {
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
