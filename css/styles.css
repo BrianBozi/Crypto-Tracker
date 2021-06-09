@@ -1,4 +1,17 @@
+.hidden {
+  display: none;
+}
+
 .alert {
+  background-color: #20cc7a;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 3px;
+  font-family: 'rationale', sans-serif;
+}
+
+.use-search {
   background-color: #20cc7a;
   text-align: center;
   margin-top: 10px;

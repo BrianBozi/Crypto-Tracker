@@ -5,16 +5,62 @@ header {
 }
 
 .container {
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
-}
-
-.search-bar {
-  position: relative;
-  left: 80%;
 }
 
 .top-line {
   border-bottom: 1px solid black;
   padding-bottom: 10px;
+}
+
+.search-bar {
+  position: relative;
+  left: 80%;
+  border: 1px solid;
+  padding: 5px 5px;
+  border-radius: 10px;
+}
+
+.search-box {
+  border: none;
+}
+
+.searchBTN {
+  border: none;
+  color: #20cc7a;
+  background-color: white;
+}
+
+.icon {
+  color: white;
+}
+
+@media (max-width: 1124px) {
+  .search-bar {
+    left: 70%;
+  }
+
+  .icon {
+    color: white;
+  }
+}
+
+@media (max-width: 747px) {
+  .search-box {
+    display: none;
+  }
+
+  .search-bar {
+    display: none;
+  }
+
+  .iconify {
+    color: #20cc7a;
+    height: 42px;
+    width: 42px;
+    position: relative;
+    left: 90%;
+    display: show;
+  }
 }
