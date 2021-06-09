@@ -43,3 +43,27 @@
   font-family: 'rationale', sans-serif;
   font-size: 2rem;
 }
+
+.search-modal {
+  border: 1px solid;
+  height: 40px;
+  border-radius: 10px;
+  overflow: auto;
+  position: relative;
+  bottom: 55px;
+  background-color: white;
+  box-shadow: 0 0 10000px 1000px rgba(16, 16, 17, 0.9);
+}
+
+.search-input {
+  width: 90%;
+  height: 35px;
+  border: none;
+}
+
+.cancel-modal {
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
