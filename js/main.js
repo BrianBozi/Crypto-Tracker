@@ -6,6 +6,18 @@ var $searchIcon = document.querySelector('.icon');
 var $cancelSearch = document.querySelector('.cancel-modal');
 var $searchModal = document.querySelector('.search-modal');
 
+// XMLHttpRequest
+var xhr = new XMLHttpRequest();
+
+xhr.open('GET', 'https://api.coinstats.app/public/v1/coins?skip=0&limit=0&currency=USD');
+xhr.responseType = 'json';
+xhr.addEventListener('load', function () {
+
+  data.name = xhr.response;
+});
+
+xhr.send();
+
 // closing intro video
 $CloseVideo.addEventListener('click', function (event) {
 
@@ -25,6 +37,7 @@ $cancelSearch.addEventListener('click', function (event) {
 });
 
 // renderFunction to create the DOM tree needed for search results
+// var $ul = document.getElementById('search');
 // function renderListing(results) {
 //   var $lisitng = document.createElement('li');
 //   var $coinIMG = document.createElement('img');
@@ -35,4 +48,7 @@ $cancelSearch.addEventListener('click', function (event) {
 //   $coinIMG.setAttribute('src', results.icon);
 //   $lisitng.textContent = results.name;
 
+//   $ul.appendChild($lisitng);
 // }
+
+// create
