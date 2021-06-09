@@ -5,15 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AJAX Project</title>
   <link rel="icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rationale&family=Russo+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <div class="container">
   <header>
+    Crypto
   </header>
   <main>
+    <div class="row top-line">
+      <span class="iconify icon" data-icon="el:search-alt" data-inline="false"></span>
+
+      <label class="search-bar" for="search">
+      <input class="search-box" type="text" name="" id="" placeholder=" Search Coins...">
+      <button class="searchBTN"><span class="iconify" data-icon="el:search-alt" data-inline="false"></span></button>
+      </label>
+    </div>
+
+    <div class="row intro-video" data-view="intro-video">
+      <div class="alert">
+        <h3>Please watch this video for a introduction to CryptoCurrencies</h3>
+      </div>
+      <div class="row">
+        <div class="yt-player">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/0B3sccDYwuI" title="YouTube video player"
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="row">
+        <button class="yt-close">Close</button>
+      </div>
+    </div>
+
+      <!-- new data view -->
+      <div class="row use-search hidden ">
+        <h2>Please Use the Search Bar to look up some CryptoCurrencies ⤴</h2>
+      </div>
+      <div class="row news hidden">
+        <h3>News</h3>
+      </div>
+
+
   </main>
+  </div>
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
