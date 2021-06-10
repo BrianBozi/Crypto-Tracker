@@ -56,7 +56,7 @@
 }
 
 .search-input {
-  width: 90%;
+  width: 80%;
   height: 35px;
   border: none;
 }
@@ -66,4 +66,20 @@
   color: white;
   border-radius: 10px;
   border: none;
+}
+
+.mobile-dropdown {
+  background-color: white;
+  position: relative;
+  left: 20%;
+  height: 100px;
+  width: 300px;
+}
+
+#mobile-ul {
+  background-color: white;
+  position: relative;
+  left: 5%;
+  height: 100px;
+  width: 500px;
 }

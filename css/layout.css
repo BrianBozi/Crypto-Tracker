@@ -90,11 +90,13 @@ ul {
 }
 
 .li-icon {
-  width: 20%;
-  position: relative;
-  top: 8px;
+  width: 10%;
+
+  /* position: relative; */
+  top: 6px;
+  padding: 2px;
 }
 
 .listing {
-  padding-bottom: 5px;
+  padding: 10px;
 }
