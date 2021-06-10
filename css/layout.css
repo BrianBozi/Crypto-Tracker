@@ -41,6 +41,10 @@ header {
     left: 70%;
   }
 
+  .div-container {
+    left: 70%;
+  }
+
   .icon {
     color: white;
   }
@@ -48,6 +52,10 @@ header {
 
 @media (max-width: 747px) {
   .search-box {
+    display: none;
+  }
+
+  .div-container {
     display: none;
   }
 
@@ -63,4 +71,35 @@ header {
     left: 90%;
     display: show;
   }
+}
+
+.div-container {
+  position: relative;
+  left: 80%;
+}
+
+ul {
+  border: 1px solid black;
+  font-family: 'Russo one', sans-serif;
+  border-radius: 10px;
+  width: 200px;
+  position: absolute;
+  background-color: white;
+  list-style: none;
+  padding-bottom: 10px;
+}
+
+.li-icon {
+  width: 10%;
+
+  /* position: relative; */
+  top: 6px;
+  padding: 2px;
+}
+
+.listing > img {
+  height: 30px;
+  margin-left: 15px;
+  position: relative;
+  top: 5px;
 }
