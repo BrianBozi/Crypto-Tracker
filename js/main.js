@@ -5,6 +5,8 @@ var $news = document.querySelector('.news');
 var $searchIcon = document.querySelector('.icon');
 var $cancelSearch = document.querySelector('.cancel-modal');
 var $searchModal = document.querySelector('.search-modal');
+var $search = document.querySelector('.search-box');
+var $searchDropDown = document.querySelector('.div-container');
 
 // XMLHttpRequest
 var xhr = new XMLHttpRequest();
@@ -37,18 +39,43 @@ $cancelSearch.addEventListener('click', function (event) {
 });
 
 // renderFunction to create the DOM tree needed for search results
-// var $ul = document.getElementById('search');
-// function renderListing(results) {
-//   var $lisitng = document.createElement('li');
-//   var $coinIMG = document.createElement('img');
-//   // getting from JSON
-//   // results.icon;
-//   // results.name;
+var $ul = document.getElementById('search-ul');
+// console.log($ul);
+function renderListing(coin) {
+  var $listing = document.createElement('li');
+  var $coinIMG = document.createElement('img');
 
-//   $coinIMG.setAttribute('src', results.icon);
-//   $lisitng.textContent = results.name;
+  $listing.setAttribute('class', 'listing');
+  $coinIMG.setAttribute('src', coin.icon);
+  $coinIMG.setAttribute('class', 'li-coin');
+  $listing.textContent = coin.id;
 
-//   $ul.appendChild($lisitng);
-// }
+  $ul.appendChild($listing);
+  $listing.append($coinIMG);
+  return $ul;
+}
 
-// create
+// listnening for the key press
+
+$search.addEventListener('input', function (event) {
+  var value = event.target.value.toLowerCase();
+  // console.log(value);
+  if (data.name.coins.length) {
+    var coins = data.name.coins;
+
+    // var filteredData = coins.filter(coin => coin.id === value);
+
+    // console.log('filteredData', filteredData);
+
+    for (var i = 0; i < data.name.coins.length; i++) {
+
+      if (value === data.name.coins[i].id) {
+
+        // console.log('matches ID');
+        renderListing(coins[i]);
+        $searchDropDown.className = 'div-container';
+      }
+    }
+
+  }
+});
