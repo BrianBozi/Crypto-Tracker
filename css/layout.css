@@ -75,7 +75,7 @@ header {
 
 .div-container {
   position: relative;
-  left: 81.5%;
+  left: 80%;
 }
 
 ul {
@@ -97,6 +97,9 @@ ul {
   padding: 2px;
 }
 
-.listing {
-  padding: 10px;
+.listing > img {
+  height: 30px;
+  margin-left: 15px;
+  position: relative;
+  top: 5px;
 }

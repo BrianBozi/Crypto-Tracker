@@ -35,6 +35,7 @@ $CloseVideo.addEventListener('click', function (event) {
 
 $searchIcon.addEventListener('click', function (event) {
   $searchModal.className = 'search-modal';
+  $mobileUL.className = 'mobile-dropdown';
 
 });
 
@@ -72,7 +73,7 @@ function renderListingMobile(coin) {
   $coinIMG.setAttribute('class', 'li-coin');
   $listing.textContent = coin.id;
 
-  $mobileUL.appendChild($listing);
+  $mobileUL.append($listing);
   $listing.append($coinIMG);
   return $mobileUL;
 }
@@ -101,26 +102,22 @@ $search.addEventListener('input', function (event) {
 
 // mobile search
 $mobileSearch.addEventListener('input', function (event) {
-
+  // console.log('input listener');
   var value = event.target.value.toLowerCase();
-  // console.log(value);
   if (data.name.coins.length) {
     var coins = data.name.coins;
     // var filteredData = coins.filter(coin => coin.id === value);
     // console.log('filteredData', filteredData);
-
     for (var i = 0; i < data.name.coins.length; i++) {
-
       if (value === coins[i].id) {
-
         $mobileSearchDropdown.className = 'mobile-container';
         renderListingMobile(coins[i]);
+        // console.log('match');
         return;
       } else if (value !== coins[i].id) {
         $mobileSearchDropdown.className = 'mobile-container ' + 'hidden';
-
       }
-
     }
   }
+
 });
