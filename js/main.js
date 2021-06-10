@@ -52,6 +52,7 @@ function renderListing(coin) {
   var $coinIMG = document.createElement('img');
 
   $listing.setAttribute('class', 'listing');
+  $listing.setAttribute('data-id', coin.id);
   $coinIMG.setAttribute('src', coin.icon);
   $coinIMG.setAttribute('class', 'li-coin');
   $listing.textContent = coin.id;
@@ -99,6 +100,10 @@ $search.addEventListener('input', function (event) {
     }
   }
 });
+
+// $searchDropDown.addEventListener('click', function (event) {
+//   console.log(event.target);
+// });
 
 // mobile search
 $mobileSearch.addEventListener('input', function (event) {
