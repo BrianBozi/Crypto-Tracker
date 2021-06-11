@@ -115,6 +115,8 @@ ul {
   border: 1px solid black;
   border-radius: 10px;
   background-color: #ededed;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .col-half {
