@@ -50,7 +50,6 @@ var $ul = document.getElementById('search-ul');
 function renderListing(coin) {
   var $listing = document.createElement('li');
   var $coinIMG = document.createElement('img');
-
   $listing.setAttribute('class', 'listing');
   $listing.setAttribute('data-id', coin.id);
   $coinIMG.setAttribute('src', coin.icon);
@@ -68,7 +67,6 @@ var $mobileUL = document.getElementById('mobile-ul');
 function renderListingMobile(coin) {
   var $listing = document.createElement('li');
   var $coinIMG = document.createElement('img');
-
   $listing.setAttribute('class', 'listing');
   $listing.setAttribute('data-id', coin.id);
   $coinIMG.setAttribute('src', coin.icon);
@@ -120,9 +118,11 @@ $mobileSearch.addEventListener('input', function (event) {
         $mobileSearchDropdown.className = 'mobile-container';
         renderListingMobile(coins[i]);
         // console.log('match');
+        return;
 
       } else if (value !== coins[i].id) {
         $mobileSearchDropdown.className = 'mobile-container ' + 'hidden';
+
       }
     }
   }
@@ -166,7 +166,7 @@ $mobileSearchDropdown.addEventListener('click', function (event) {
   var coinPrice = document.querySelector('.price');
   var coinVol = document.querySelector('.vol');
   var coinImage = document.querySelector('.coinImage');
-  var $dataID = document.querySelector('.listing').getAttribute('data-id');
+  var $dataID = event.target.getAttribute('data-id');
 
   for (var i = 0; i < data.name.coins.length; i++) {
     if ($dataID === data.name.coins[i].id) {
