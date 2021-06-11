@@ -119,7 +119,7 @@ $mobileSearch.addEventListener('input', function (event) {
         $mobileSearchDropdown.className = 'mobile-container';
         renderListingMobile(coins[i]);
         // console.log('match');
-        return;
+
       } else if (value !== coins[i].id) {
         $mobileSearchDropdown.className = 'mobile-container ' + 'hidden';
       }
@@ -148,6 +148,7 @@ $mobileSearch.addEventListener('input', function (event) {
 //   var priceChange = document.crea
 // }
 
+var $coinDataPage = document.querySelector('.coin-data');
 // coinpage viewport desktop
 $searchDropDown.addEventListener('click', function (event) {
 
@@ -166,6 +167,7 @@ $searchDropDown.addEventListener('click', function (event) {
       coinPriceChange.textContent = coins[i].priceChange1d;
       coinPrice.textContent = coins[i].price;
       coinVol.textContent = coins[i].volume;
+      $coinDataPage.className = 'coin-data';
       $searchDropDown.className = 'div-container ' + 'hidden';
       return;
     }
@@ -192,6 +194,7 @@ $mobileSearchDropdown.addEventListener('click', function (event) {
       coinVol.textContent = coins[i].volume;
       $searchModal.className = 'search-modal ' + 'hidden';
       $mobileUL.className = 'mobile-dropdown ' + 'hidden';
+      $coinDataPage.className = 'coin-data';
       return;
     }
   }
