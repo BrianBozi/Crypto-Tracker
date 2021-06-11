@@ -1,7 +1,9 @@
 /* exported data */
 
 var data = {
-  name: []
+  name: [],
+  editing: null,
+  nextEntryId: 1
 };
 
 var oldDataJSON = localStorage.getItem('javascript-local-storage');

@@ -83,6 +83,7 @@ function renderListingMobile(coin) {
 // listnening for the key press
 
 $search.addEventListener('input', function (event) {
+  // console.log(event.target);
 
   var value = event.target.value.toLowerCase();
   // console.log(value);
@@ -131,6 +132,7 @@ $mobileSearch.addEventListener('input', function (event) {
 var $coinDataPage = document.querySelector('.coin-data');
 // coinpage viewport desktop
 $searchDropDown.addEventListener('click', function (event) {
+  // console.log('click on', event.target);
 
   var coins = data.name.coins;
   var coinName = document.querySelector('.coinName');
@@ -138,10 +140,11 @@ $searchDropDown.addEventListener('click', function (event) {
   var coinPrice = document.querySelector('.price');
   var coinVol = document.querySelector('.vol');
   var coinImage = document.querySelector('.coinImage');
-  var $dataID = document.querySelector('.listing').getAttribute('data-id');
+  var $dataID = event.target.getAttribute('data-id');
 
   for (var i = 0; i < data.name.coins.length; i++) {
     if ($dataID === data.name.coins[i].id) {
+      coinName.setAttribute('data-ID', coins[i].id);
       coinName.textContent = coins[i].name;
       coinImage.setAttribute('src', coins[i].icon);
       coinPriceChange.textContent = coins[i].priceChange1d;
@@ -149,7 +152,7 @@ $searchDropDown.addEventListener('click', function (event) {
       coinVol.textContent = coins[i].volume;
       $coinDataPage.className = 'coin-data';
       $searchDropDown.className = 'div-container ' + 'hidden';
-      return;
+      // console.log('data-id', $dataID);
     }
   }
 
@@ -167,6 +170,7 @@ $mobileSearchDropdown.addEventListener('click', function (event) {
 
   for (var i = 0; i < data.name.coins.length; i++) {
     if ($dataID === data.name.coins[i].id) {
+      coinName.setAttribute('data-ID', coins[i].id);
       coinName.textContent = coins[i].name;
       coinImage.setAttribute('src', coins[i].icon);
       coinPriceChange.textContent = coins[i].priceChange1d;
@@ -182,31 +186,71 @@ $mobileSearchDropdown.addEventListener('click', function (event) {
 
 // render for fav list
 
-// function renderFavorites() {
-//   var $favUl = document.querySelector('.fav-ul');
+function renderFavorites(coin) {
+  var $favUl = document.querySelector('.fav-list');
 
-//   var $li = document.createElement('li');
-//   $li.setAttribute('class', 'new-row ' + 'fav-list');
-//   $favUl.appendChild($li);
+  var $li = document.createElement('li');
+  $li.setAttribute('class', 'new-row fav-list');
+  $favUl.appendChild($li);
 
-//   var $div = document.createElement('div');
-//   $div.setAttribute('class', 'col-half');
-//   $li.appendChild($div);
+  var $div = document.createElement('div');
+  $div.setAttribute('class', 'col-half');
+  $li.appendChild($div);
 
-//   var $favIMG = document.createElement('img');
-//   $favIMG.setAttribute('class', 'fav-icon');
-//   $favIMG.setAttribute('src', _________);
-//   $div.appendChild($favIMG);
+  var $favIMG = document.createElement('img');
+  $favIMG.setAttribute('class', 'fav-icon');
+  $favIMG.setAttribute('src', coin.icon);
+  $div.appendChild($favIMG);
 
-//   var $div2 = document.createElement('div');
-//   $div2.setAttribute('class', 'col-half');
-//   var $coinName = document.createElement('h3');
-//   $coinName.textContent = _______________;
-//   $div2.appendChild($coinName);
-//   var $coinPriceChange = document.createElement('h3');
-//   $coinPriceChange.textContent = ____________;
-//   $div2.appendChild($coinPriceChange);
+  var $div2 = document.createElement('div');
+  $div2.setAttribute('class', 'col-half');
+  var $coinName = document.createElement('h3');
+  $coinName.textContent = coin.name;
+  $div2.appendChild($coinName);
+  var $coinPriceChange = document.createElement('h3');
+  $coinPriceChange.textContent = coin.priceChange1d;
+  $div2.appendChild($coinPriceChange);
 
-//   $li.appendChild($div2);
+  $li.appendChild($div2);
 
+  return $favUl;
+
+}
+
+// coins = paramether
+// pass in the xhr.response.coins[i] in it
+
+var $addToFav = document.querySelector('.addToFav');
+
+// function coinsRquest(coin) {
+
+//   var xhr = new XMLHttpRequest();
+//   xhr.open('GET', 'https://api.coinstats.app/public/v1/coins?skip=0&limit=0&currency=USD');
+//   xhr.setRequestHeader('token', 'abc123');
+//   xhr.responseType = 'json';
+//   xhr.addEventListener('load', function () {
+//     for (var i = 0; i < xhr.response.coins[i]; i++) {
+//       renderFavorites(xhr.response.coins[i]);
+
+//     }
+//   });
 // }
+
+$addToFav.addEventListener('click', function () {
+  var $dataID = document.querySelector('.coinName').getAttribute('data-ID');
+  // console.log('click');
+  // console.log($dataID);
+  for (var i = 0; i < xhr.response.coins.length; i++) {
+    if ($dataID === xhr.response.coins[i].id) {
+      renderFavorites(xhr.response.coins[i]);
+      // console.log('match');
+    }
+  }
+  $coinDataPage.className = 'coin-data ' + 'hidden';
+});
+
+// go home btn
+var $goHome = document.querySelector('.goHome');
+$goHome.addEventListener('click', function (event) {
+  $coinDataPage.className = 'coin-data ' + 'hidden';
+});
