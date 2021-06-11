@@ -103,3 +103,30 @@ ul {
   position: relative;
   top: 5px;
 }
+
+/* coin data page */
+
+.new-row {
+  display: flex;
+}
+
+.coin-data {
+  font-family: 'Russo one', sans-serif;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #ededed;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.col-half {
+  flex-basis: calc(100% / 2);
+  text-align: center;
+}
+
+.new-row > img {
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+}

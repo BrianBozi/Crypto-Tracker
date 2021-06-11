@@ -81,3 +81,16 @@
   left: 5%;
   width: 500px;
 }
+
+.goHome {
+  background-color: red;
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 15px;
+}
+
+.addToFav {
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 15px;
+}

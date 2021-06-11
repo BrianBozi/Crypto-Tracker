@@ -52,6 +52,7 @@ function renderListing(coin) {
   var $coinIMG = document.createElement('img');
 
   $listing.setAttribute('class', 'listing');
+  $listing.setAttribute('data-id', coin.id);
   $coinIMG.setAttribute('src', coin.icon);
   $coinIMG.setAttribute('class', 'li-coin');
   $listing.textContent = coin.id;
@@ -69,6 +70,7 @@ function renderListingMobile(coin) {
   var $coinIMG = document.createElement('img');
 
   $listing.setAttribute('class', 'listing');
+  $listing.setAttribute('data-id', coin.id);
   $coinIMG.setAttribute('src', coin.icon);
   $coinIMG.setAttribute('class', 'li-coin');
   $listing.textContent = coin.id;
@@ -100,6 +102,10 @@ $search.addEventListener('input', function (event) {
   }
 });
 
+// $searchDropDown.addEventListener('click', function (event) {
+//   console.log(event.target);
+// });
+
 // mobile search
 $mobileSearch.addEventListener('input', function (event) {
   // console.log('input listener');
@@ -120,4 +126,73 @@ $mobileSearch.addEventListener('input', function (event) {
     }
   }
 
+});
+
+// DOMTREE COIN DATA PAGE
+
+// function renderCoinPage() {
+//   var coinPage = document.createElement('div');
+//   coinPage.setAttribute('class', 'coin-page');
+//   var newRow = document.createElement('div');
+//   newRow.setAttribute('class', 'new-row');
+//   var coinIMG = document.createElement('image');
+//   coinIMG.setAttribute('src', _________);
+//   var newRow2 = document.createElement('div');
+//   newRow2.setAttribute('class', 'new-row');
+//   var colHalf = document.createElement('div');
+//   colHalf.setAttribute('class', 'col-half');
+//   var coinName = document.createElement('h3');
+//   coinName.textContent = _________;
+//   var colHalf2 = document.createElement('div');
+//   colHalf2.setAttribute('class', 'col-half');
+//   var priceChange = document.crea
+// }
+
+// coinpage viewport desktop
+$searchDropDown.addEventListener('click', function (event) {
+
+  var coins = data.name.coins;
+  var coinName = document.querySelector('.coinName');
+  var coinPriceChange = document.querySelector('.price-change');
+  var coinPrice = document.querySelector('.price');
+  var coinVol = document.querySelector('.vol');
+  var coinImage = document.querySelector('.coinImage');
+  var $dataID = document.querySelector('.listing').getAttribute('data-id');
+
+  for (var i = 0; i < data.name.coins.length; i++) {
+    if ($dataID === data.name.coins[i].id) {
+      coinName.textContent = coins[i].name;
+      coinImage.setAttribute('src', coins[i].icon);
+      coinPriceChange.textContent = coins[i].priceChange1d;
+      coinPrice.textContent = coins[i].price;
+      coinVol.textContent = coins[i].volume;
+      $searchDropDown.className = 'div-container ' + 'hidden';
+      return;
+    }
+  }
+
+});
+
+$mobileSearchDropdown.addEventListener('click', function (event) {
+
+  var coins = data.name.coins;
+  var coinName = document.querySelector('.coinName');
+  var coinPriceChange = document.querySelector('.price-change');
+  var coinPrice = document.querySelector('.price');
+  var coinVol = document.querySelector('.vol');
+  var coinImage = document.querySelector('.coinImage');
+  var $dataID = document.querySelector('.listing').getAttribute('data-id');
+
+  for (var i = 0; i < data.name.coins.length; i++) {
+    if ($dataID === data.name.coins[i].id) {
+      coinName.textContent = coins[i].name;
+      coinImage.setAttribute('src', coins[i].icon);
+      coinPriceChange.textContent = coins[i].priceChange1d;
+      coinPrice.textContent = coins[i].price;
+      coinVol.textContent = coins[i].volume;
+      $searchModal.className = 'search-modal ' + 'hidden';
+      $mobileUL.className = 'mobile-dropdown ' + 'hidden';
+      return;
+    }
+  }
 });
