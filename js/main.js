@@ -128,26 +128,6 @@ $mobileSearch.addEventListener('input', function (event) {
 
 });
 
-// DOMTREE COIN DATA PAGE
-
-// function renderCoinPage() {
-//   var coinPage = document.createElement('div');
-//   coinPage.setAttribute('class', 'coin-page');
-//   var newRow = document.createElement('div');
-//   newRow.setAttribute('class', 'new-row');
-//   var coinIMG = document.createElement('image');
-//   coinIMG.setAttribute('src', _________);
-//   var newRow2 = document.createElement('div');
-//   newRow2.setAttribute('class', 'new-row');
-//   var colHalf = document.createElement('div');
-//   colHalf.setAttribute('class', 'col-half');
-//   var coinName = document.createElement('h3');
-//   coinName.textContent = _________;
-//   var colHalf2 = document.createElement('div');
-//   colHalf2.setAttribute('class', 'col-half');
-//   var priceChange = document.crea
-// }
-
 var $coinDataPage = document.querySelector('.coin-data');
 // coinpage viewport desktop
 $searchDropDown.addEventListener('click', function (event) {
@@ -199,3 +179,34 @@ $mobileSearchDropdown.addEventListener('click', function (event) {
     }
   }
 });
+
+// render for fav list
+
+// function renderFavorites() {
+//   var $favUl = document.querySelector('.fav-ul');
+
+//   var $li = document.createElement('li');
+//   $li.setAttribute('class', 'new-row ' + 'fav-list');
+//   $favUl.appendChild($li);
+
+//   var $div = document.createElement('div');
+//   $div.setAttribute('class', 'col-half');
+//   $li.appendChild($div);
+
+//   var $favIMG = document.createElement('img');
+//   $favIMG.setAttribute('class', 'fav-icon');
+//   $favIMG.setAttribute('src', _________);
+//   $div.appendChild($favIMG);
+
+//   var $div2 = document.createElement('div');
+//   $div2.setAttribute('class', 'col-half');
+//   var $coinName = document.createElement('h3');
+//   $coinName.textContent = _______________;
+//   $div2.appendChild($coinName);
+//   var $coinPriceChange = document.createElement('h3');
+//   $coinPriceChange.textContent = ____________;
+//   $div2.appendChild($coinPriceChange);
+
+//   $li.appendChild($div2);
+
+// }
