@@ -70,6 +70,7 @@ function renderListingMobile(coin) {
   var $coinIMG = document.createElement('img');
 
   $listing.setAttribute('class', 'listing');
+  $listing.setAttribute('data-id', coin.id);
   $coinIMG.setAttribute('src', coin.icon);
   $coinIMG.setAttribute('class', 'li-coin');
   $listing.textContent = coin.id;
@@ -147,7 +148,7 @@ $mobileSearch.addEventListener('input', function (event) {
 //   var priceChange = document.crea
 // }
 
-// coinpage viewport
+// coinpage viewport desktop
 $searchDropDown.addEventListener('click', function (event) {
 
   var coins = data.name.coins;
@@ -170,4 +171,28 @@ $searchDropDown.addEventListener('click', function (event) {
     }
   }
 
+});
+
+$mobileSearchDropdown.addEventListener('click', function (event) {
+
+  var coins = data.name.coins;
+  var coinName = document.querySelector('.coinName');
+  var coinPriceChange = document.querySelector('.price-change');
+  var coinPrice = document.querySelector('.price');
+  var coinVol = document.querySelector('.vol');
+  var coinImage = document.querySelector('.coinImage');
+  var $dataID = document.querySelector('.listing').getAttribute('data-id');
+
+  for (var i = 0; i < data.name.coins.length; i++) {
+    if ($dataID === data.name.coins[i].id) {
+      coinName.textContent = coins[i].name;
+      coinImage.setAttribute('src', coins[i].icon);
+      coinPriceChange.textContent = coins[i].priceChange1d;
+      coinPrice.textContent = coins[i].price;
+      coinVol.textContent = coins[i].volume;
+      $searchModal.className = 'search-modal ' + 'hidden';
+      $mobileUL.className = 'mobile-dropdown ' + 'hidden';
+      return;
+    }
+  }
 });
