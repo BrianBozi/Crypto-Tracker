@@ -36,12 +36,14 @@ $CloseVideo.addEventListener('click', function (event) {
 $searchIcon.addEventListener('click', function (event) {
   $searchModal.className = 'search-modal';
   $mobileUL.className = 'mobile-dropdown';
+  $favListing.className = 'fav-ul fav-list hide-faves ' + 'hidden';
 
 });
 
 $cancelSearch.addEventListener('click', function (event) {
   $searchModal.className = 'search-modal ' + 'hidden';
   $mobileUL.className = 'mobile-dropdown ' + 'hidden';
+  $favListing.className = 'fav-ul fav-list hide-faves';
 });
 
 // renderFunction to create the DOM tree needed for search results
@@ -235,7 +237,7 @@ var $addToFav = document.querySelector('.addToFav');
 //     }
 //   });
 // }
-
+var $favListing = document.querySelector('.hide-faves');
 $addToFav.addEventListener('click', function () {
   var $dataID = document.querySelector('.coinName').getAttribute('data-ID');
   // console.log('click');
@@ -243,10 +245,22 @@ $addToFav.addEventListener('click', function () {
   for (var i = 0; i < xhr.response.coins.length; i++) {
     if ($dataID === xhr.response.coins[i].id) {
       renderFavorites(xhr.response.coins[i]);
+      $favListing.className = 'fav-ul fav-list hide-faves';
+
+      // var fav = {
+      //   icon: xhr.response.coins[i].icon,
+      //   name: xhr.response.coins[i].name,
+      //   price: xhr.response.coins[i].price
+      // };
+
+      // data.push(fav);
+
       // console.log('match');
     }
   }
   $coinDataPage.className = 'coin-data ' + 'hidden';
+
+  event.preventDefault();
 });
 
 // go home btn
