@@ -2,7 +2,7 @@
 
 var data = {
   name: [],
-  favorite: [],
+  favorites: [],
   editing: null,
   nextEntryId: 1
 };
