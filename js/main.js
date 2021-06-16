@@ -263,6 +263,7 @@ $addToFav.addEventListener('click', function () {
         name: xhr.response.coins[i].name,
         priceChange: xhr.response.coins[i].priceChange1d,
         price: xhr.response.coins[i].price,
+        volume: xhr.response.coins[i].volume,
         entryId: data.nextEntryId
       };
 
@@ -294,5 +295,35 @@ $goHome.addEventListener('click', function (event) {
 
 var $favoriteClick = document.querySelector('.fav-list');
 $favoriteClick.addEventListener('click', function (event) {
+  $coinDataPage.className = 'coin-data';
+
+  var coins = data.name.coins;
+  var coinName = document.querySelector('.coinName');
+  var coinPriceChange = document.querySelector('.price-change');
+  var coinPrice = document.querySelector('.price');
+  var coinVol = document.querySelector('.vol');
+  var coinImage = document.querySelector('.coinImage');
+
+  var $coinID = event.target.getAttribute('coin-id');
+
+  // var $favBTN = document.querySelector('.addToFav');
+  // $favBTN.textContent = 'Remove from favorites';
+  // $favBTN.setAttribute('class', 'remove');
+
+  for (var i = 0; i < data.favorites.length; i++) {
+    if ($coinID === data.favorites[i].id) {
+      // study and anaylze this code for the coin page.
+      coinName.setAttribute('data-ID', data.favorites[i].id);
+      coinName.textContent = coins[i].name;
+      coinImage.setAttribute('src', data.favorites[i].icon);
+      coinPriceChange.textContent = data.favorites[i].priceChange1d;
+      coinPrice.textContent = '$' + data.favorites[i].price;
+      coinVol.textContent = data.favorites[i].volume;
+      $coinDataPage.className = 'coin-data';
+      $searchDropDown.className = 'div-container ' + 'hidden';
+      return;
+      // console.log('data-id', $dataID);
+    }
+  }
   // console.log(event.target);
 });
