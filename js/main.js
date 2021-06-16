@@ -214,7 +214,7 @@ function renderFavorites(coin) {
   $coinName.textContent = coin.name;
   $div2.appendChild($coinName);
   var $coinPriceChange = document.createElement('h3');
-  $coinPriceChange.textContent = coin.priceChange1d;
+  $coinPriceChange.textContent = '$' + coin.price;
   $div2.appendChild($coinPriceChange);
 
   $li.appendChild($div2);
@@ -254,8 +254,8 @@ $addToFav.addEventListener('click', function () {
       var fav = {
         icon: xhr.response.coins[i].icon,
         name: xhr.response.coins[i].name,
-        price: xhr.response.coins[i].price,
         priceChange: xhr.response.coins[i].priceChange1d,
+        price: xhr.response.coins[i].price,
         entryId: data.nextEntryId
       };
 
@@ -275,7 +275,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
     renderFavorites(data.favorites[i]);
     $introVideo.className = 'hidden';
     $favListing.className = 'fav-ul fav-list hide-faves';
-    // console.log(xhr.response.coins.priceChange1d);
 
   }
 });
