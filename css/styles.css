@@ -126,3 +126,9 @@
   margin: 10px;
   border-radius: 10px;
 }
+
+.removeFav {
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 15px;
+}

@@ -290,12 +290,17 @@ document.addEventListener('DOMContentLoaded', function (event) {
 // go home btn
 var $goHome = document.querySelector('.goHome');
 
+var $addFavButton = document.querySelector('.addToFavDiv');
+var $removeFavButton = document.querySelector('.removeFavDiv');
+var $favoriteClick = document.querySelector('.fav-list');
+
 $goHome.addEventListener('click', function (event) {
   $coinDataPage.className = 'coin-data ' + 'hidden';
   $favListing.className = 'fav-ul fav-list hide-faves';
+  $addFavButton.className = 'col-half addToFavDiv';
+  $removeFavButton.className = 'col-half removeFavDiv hidden';
 });
 
-var $favoriteClick = document.querySelector('.fav-list');
 $favoriteClick.addEventListener('click', function (event) {
   $coinDataPage.className = 'coin-data';
 
@@ -318,7 +323,10 @@ $favoriteClick.addEventListener('click', function (event) {
       coinVol.textContent = data.favorites[i].volume;
       $coinDataPage.className = 'coin-data';
       $favListing.className = 'fav-ul fav-list hide-faves hidden';
-      $addToFav.textContent = 'Remove from Favorites';
+      $addFavButton.className = 'col-half addToFavDiv hidden';
+      $removeFavButton.className = 'col-half removeFavDiv';
+
+      // $addToFav.textContent = 'Remove from Favorites';
       return;
 
     }
