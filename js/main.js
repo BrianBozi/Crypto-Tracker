@@ -293,6 +293,8 @@ var $goHome = document.querySelector('.goHome');
 var $addFavButton = document.querySelector('.addToFavDiv');
 var $removeFavButton = document.querySelector('.removeFavDiv');
 var $favoriteClick = document.querySelector('.fav-list');
+var $popUpModal = document.querySelector('.modal-container');
+var $cancelRemove = document.querySelector('.cancel');
 
 $goHome.addEventListener('click', function (event) {
   $coinDataPage.className = 'coin-data ' + 'hidden';
@@ -334,6 +336,12 @@ $favoriteClick.addEventListener('click', function (event) {
 
 });
 
-// $removeFavButton.addEventListener('click', function (event) {
-//   console.log('click');
-// });
+$removeFavButton.addEventListener('click', function (event) {
+  // console.log('click');
+  $popUpModal.className = 'modal-container';
+});
+
+$cancelRemove.addEventListener('click', function (event) {
+  $popUpModal.className = 'modal-container hidden';
+  // console.log('clicked cancel');
+});
