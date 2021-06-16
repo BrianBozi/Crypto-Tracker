@@ -255,6 +255,7 @@ $addToFav.addEventListener('click', function () {
         icon: xhr.response.coins[i].icon,
         name: xhr.response.coins[i].name,
         price: xhr.response.coins[i].price,
+        priceChange: xhr.response.coins[i].priceChange1d,
         entryId: data.nextEntryId
       };
 
@@ -265,6 +266,18 @@ $addToFav.addEventListener('click', function () {
   }
   $coinDataPage.className = 'coin-data ' + 'hidden';
   event.preventDefault();
+});
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  // var $favUl = document.querySelector('.fav-list');
+
+  for (var i = 0; i < data.favorites.length; i++) {
+    renderFavorites(data.favorites[i]);
+    $introVideo.className = 'hidden';
+    $favListing.className = 'fav-ul fav-list hide-faves';
+    // console.log(xhr.response.coins.priceChange1d);
+
+  }
 });
 
 // go home btn
