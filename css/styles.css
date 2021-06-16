@@ -132,3 +132,32 @@
   font-size: 18px;
   padding: 15px;
 }
+
+.modal-container {
+  width: 75%;
+  box-shadow: 0 0 10000px 1000px rgba(16, 16, 17, 0.9);
+  position: relative;
+  left: 50%;
+  bottom: 30vh;
+  transform: translateX(-50%);
+}
+
+.delete-modal {
+  background-color: white;
+  height: 170px;
+  padding: auto;
+}
+
+.cancel,
+.yes {
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 15px;
+  width: 150px;
+}
+
+.modal-text {
+  font-family: 'rationale', sans-serif;
+  justify-content: center;
+  margin-bottom: 20px;
+}

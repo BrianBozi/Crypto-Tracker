@@ -333,3 +333,7 @@ $favoriteClick.addEventListener('click', function (event) {
   }
 
 });
+
+// $removeFavButton.addEventListener('click', function (event) {
+//   console.log('click');
+// });
