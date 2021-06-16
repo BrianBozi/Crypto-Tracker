@@ -201,19 +201,25 @@ function renderFavorites(coin) {
 
   var $div = document.createElement('div');
   $div.setAttribute('class', 'col-half');
+  $div.setAttribute('coin-id', coin.id);
   $li.appendChild($div);
 
   var $favIMG = document.createElement('img');
   $favIMG.setAttribute('class', 'fav-icon');
+  $favIMG.setAttribute('coin-id', coin.id);
   $favIMG.setAttribute('src', coin.icon);
+
   $div.appendChild($favIMG);
 
   var $div2 = document.createElement('div');
   $div2.setAttribute('class', 'col-half');
+  $div2.setAttribute('coin-id', coin.id);
   var $coinName = document.createElement('h3');
+  $coinName.setAttribute('coin-id', coin.id);
   $coinName.textContent = coin.name;
   $div2.appendChild($coinName);
   var $coinPriceChange = document.createElement('h3');
+  $coinPriceChange.setAttribute('coin-id', coin.id);
   $coinPriceChange.textContent = '$' + coin.price;
   $div2.appendChild($coinPriceChange);
 
@@ -253,19 +259,20 @@ $addToFav.addEventListener('click', function () {
 
       var fav = {
         icon: xhr.response.coins[i].icon,
+        id: xhr.response.coins[i].id,
         name: xhr.response.coins[i].name,
         priceChange: xhr.response.coins[i].priceChange1d,
         price: xhr.response.coins[i].price,
         entryId: data.nextEntryId
       };
 
-      data.favorites.unshift(fav);
+      data.favorites.push(fav);
       data.nextEntryId++;
       // console.log('match');
     }
   }
   $coinDataPage.className = 'coin-data ' + 'hidden';
-  event.preventDefault();
+  // event.preventDefault();
 });
 
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -283,4 +290,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
 var $goHome = document.querySelector('.goHome');
 $goHome.addEventListener('click', function (event) {
   $coinDataPage.className = 'coin-data ' + 'hidden';
+});
+
+var $favoriteClick = document.querySelector('.fav-list');
+$favoriteClick.addEventListener('click', function (event) {
+  // console.log(event.target);
 });
