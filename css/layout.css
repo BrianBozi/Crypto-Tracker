@@ -37,9 +37,9 @@ header {
 }
 
 @media (max-width: 1124px) {
-  .search-bar {
+  /* .search-bar {
     left: 70%;
-  }
+  } */
 
   .div-container {
     left: 70%;
@@ -48,6 +48,8 @@ header {
   .icon {
     color: white;
   }
+
+
 }
 
 @media (max-width: 747px) {
@@ -71,19 +73,27 @@ header {
     left: 90%;
     display: show;
   }
+
+
 }
 
 .div-container {
   position: relative;
   left: 80%;
 }
+  .favorite-list > ul {
+    width: 65%;
+  }
+}
 
 ul {
-  border: 1px solid black;
+  border: 1px solid yellow;
   font-family: 'Russo one', sans-serif;
   border-radius: 10px;
   width: 200px;
   position: absolute;
+  left: 1%;
+  transform: translateX(-1%);
   background-color: white;
   list-style: none;
   padding-bottom: 10px;

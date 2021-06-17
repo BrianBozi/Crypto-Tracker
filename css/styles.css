@@ -79,8 +79,8 @@
 #mobile-ul {
   background-color: white;
   position: relative;
-  left: 5%;
-  width: 500px;
+  left: 6%;
+  width: 90%;
 }
 
 .goHome {
@@ -101,10 +101,11 @@
   font-family: 'rationale', sans-serif;
 }
 
+/* add media */
 .favorite-list > ul {
-  width: 500px;
+  width: 95%;
   position: relative;
-  left: 50%;
+  left: 47%;
   transform: translateX(-50%);
   padding: 5px;
   border: 1px solid grey;
@@ -115,6 +116,12 @@
   margin: 5px;
 }
 
+@media (min-width: 765px){
+  .favorite-list > ul {
+      width: 50%;
+  }
+}
+
 .fav-icon {
   position: relative;
   top: 17px;
@@ -122,6 +129,7 @@
 
 .fav-list {
   border: 1px solid black;
+  padding:10px;
   background-color: white;
   margin: 10px;
   border-radius: 10px;
@@ -131,10 +139,11 @@
   border-radius: 10px;
   font-size: 18px;
   padding: 15px;
+
 }
 
 .modal-container {
-  width: 75%;
+
   box-shadow: 0 0 10000px 1000px rgba(16, 16, 17, 0.9);
   position: relative;
   left: 50%;
