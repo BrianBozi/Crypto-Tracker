@@ -197,6 +197,7 @@ function renderFavorites(coin) {
 
   var $li = document.createElement('li');
   $li.setAttribute('class', 'new-row fav-list');
+  $li.setAttribute('entryId', coin.entryId);
   $favUl.appendChild($li);
 
   var $div = document.createElement('div');
@@ -295,6 +296,7 @@ var $removeFavButton = document.querySelector('.removeFavDiv');
 var $favoriteClick = document.querySelector('.fav-list');
 var $popUpModal = document.querySelector('.modal-container');
 var $cancelRemove = document.querySelector('.cancel');
+// var $yesButton = document.querySelector('.yes');
 
 $goHome.addEventListener('click', function (event) {
   $coinDataPage.className = 'coin-data ' + 'hidden';
@@ -323,6 +325,7 @@ $favoriteClick.addEventListener('click', function (event) {
       coinPriceChange.textContent = data.favorites[i].priceChange;
       coinPrice.textContent = '$' + data.favorites[i].price;
       coinVol.textContent = data.favorites[i].volume;
+      // $yesButton.setAttribute('entryId', data.favorites[i].entryId);
       $coinDataPage.className = 'coin-data';
       $favListing.className = 'fav-ul fav-list hide-faves hidden';
       $addFavButton.className = 'col-half addToFavDiv hidden';
@@ -345,3 +348,18 @@ $cancelRemove.addEventListener('click', function (event) {
   $popUpModal.className = 'modal-container hidden';
   // console.log('clicked cancel');
 });
+
+// i added a entryId to the Li's to get the entry number to match the array entries in data.js
+// function on line 200
+// $yesButton.addEventListener('click', function () {
+//   var entry = $li.getAttribute(entryId);
+//   entry = parseInt(entry);
+
+//   for (var i = 0; i < data.favorites.length; i++) {
+//     if (data.favorites[i].entryId === entry) {
+//       data.editing = data.favorites[i];
+//       console.log(data.editing);
+//     }
+//   }
+
+// });
