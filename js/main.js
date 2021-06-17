@@ -191,9 +191,9 @@ $mobileSearchDropdown.addEventListener('click', function (event) {
 });
 
 // render for fav list
+var $favUl = document.querySelector('.fav-list');
 
 function renderFavorites(coin) {
-  var $favUl = document.querySelector('.fav-list');
 
   var $li = document.createElement('li');
   $li.setAttribute('class', 'new-row fav-list');
@@ -226,7 +226,7 @@ function renderFavorites(coin) {
 
   $li.appendChild($div2);
 
-  return $favUl;
+  return $li;
 
 }
 
@@ -296,7 +296,7 @@ var $removeFavButton = document.querySelector('.removeFavDiv');
 var $favoriteClick = document.querySelector('.fav-list');
 var $popUpModal = document.querySelector('.modal-container');
 var $cancelRemove = document.querySelector('.cancel');
-// var $yesButton = document.querySelector('.yes');
+var $yesButton = document.querySelector('.yes');
 
 $goHome.addEventListener('click', function (event) {
   $coinDataPage.className = 'coin-data ' + 'hidden';
@@ -325,7 +325,7 @@ $favoriteClick.addEventListener('click', function (event) {
       coinPriceChange.textContent = data.favorites[i].priceChange;
       coinPrice.textContent = '$' + data.favorites[i].price;
       coinVol.textContent = data.favorites[i].volume;
-      // $yesButton.setAttribute('entryId', data.favorites[i].entryId);
+      $yesButton.setAttribute('entryId', data.favorites[i].entryId);
       $coinDataPage.className = 'coin-data';
       $favListing.className = 'fav-ul fav-list hide-faves hidden';
       $addFavButton.className = 'col-half addToFavDiv hidden';
@@ -340,26 +340,68 @@ $favoriteClick.addEventListener('click', function (event) {
 });
 
 $removeFavButton.addEventListener('click', function (event) {
-  // console.log('click');
+  console.log('click');
   $popUpModal.className = 'modal-container';
 });
 
 $cancelRemove.addEventListener('click', function (event) {
   $popUpModal.className = 'modal-container hidden';
-  // console.log('clicked cancel');
+  console.log('clicked cancel');
 });
 
 // i added a entryId to the Li's to get the entry number to match the array entries in data.js
 // function on line 200
-// $yesButton.addEventListener('click', function () {
-//   var entry = $li.getAttribute(entryId);
-//   entry = parseInt(entry);
+// this the confirm button for the deleting. So far it is match the coin information.
+function updateDom(event) {
 
-//   for (var i = 0; i < data.favorites.length; i++) {
-//     if (data.favorites[i].entryId === entry) {
-//       data.editing = data.favorites[i];
-//       console.log(data.editing);
-//     }
-//   }
+  $favUl.innerHTML = '';
 
-// });
+  for (var x = 0; x < data.favorites.length; x++) {
+    var renderUpdatedList = renderFavorites(data.favorites[x])
+    $favUl.appendChild(renderUpdatedList)
+  }
+}
+
+$yesButton.addEventListener('click', function () {
+  console.log(event.target)
+  var $entryId = event.target.getAttribute('entryId')
+  console.log("coin id is ", $entryId)
+
+  $entryId = parseInt($entryId);
+
+  for (var i = 0; i < data.favorites.length; i++) {
+    if (data.favorites[i].entryId === $entryId) {
+      data.editing = data.favorites[i];
+      console.log('data editing', data.editing);
+      if(data.editing.entryId === data.favorites[i].entryId){
+        data.favorites.splice(i, 1);
+        console.log('should be splicing')
+
+
+
+      }
+    }
+  }
+
+  // for (var x = 0; x < data.favorites.length; x++){
+    //   updateDom(data.favorites[i])
+    // }
+
+    // function updateDom(event) {
+      //   var $favListing = document.querySelectorAll('fav-list')
+      //    $favListing.innerHTML = '';
+
+      //   for (var x = 0; x < data.favorites.length; x++) {
+        //     var renderUpdatedList = renderFavorites(data.favorites)
+        //     $favUl.appendChild(renderUpdatedList)
+  //   }
+  // }
+
+  updateDom(data.favorites)
+
+  $favListing.className = 'fav-ul fav-list hide-faves';
+  $popUpModal.className = 'modal-container hidden';
+  $coinDataPage.className = 'coin-data hidden';
+  data.editing = null
+
+});
