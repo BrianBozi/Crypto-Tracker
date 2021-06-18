@@ -445,6 +445,7 @@ function renderNews(news){
   var $link = document.createElement('a');
   $link.setAttribute('href', news.news_url);
   $link.setAttribute('target', '_blank');
+  $link.textContent = 'Read Article'
   $div2.appendChild($link)
 
   $newsUl.appendChild($li)
