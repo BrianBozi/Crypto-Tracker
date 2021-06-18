@@ -182,8 +182,11 @@
 
 .news-post{
   position: relative;
-  left: 45%;
+  left: 48%;
   transform: translateX(-50%);
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-bottom: 17px;
 
 }
  @media (max-width: 765px){
@@ -194,5 +197,21 @@
   .news {
         width: 100%;
         left: 49%;
+    }
+
+    .news-headline{
+      font-size: 1rem;
+    }
+
+    .news-icon{
+      width: 80%;
+    }
+
+    .news-post{
+      left: 45%;
+    }
+
+    a{
+      font-size: 1rem;
     }
  }
