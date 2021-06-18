@@ -26,6 +26,7 @@ xhr.addEventListener('load', function () {
 
 xhr.send();
 
+
 // closing intro video
 $CloseVideo.addEventListener('click', function (event) {
 
@@ -405,3 +406,35 @@ $yesButton.addEventListener('click', function () {
   data.editing = null
 
 });
+
+
+var $newsUl = document.querySelector('.news-post')
+function renderNews(news){
+  var $li = document.createElement('li');
+  $li.setAttribute('class', 'new-row news-post');
+
+  var $div = document.createElement('div');
+  $div.setAttribute('class', 'col-half');
+  $li.appendChild($div)
+
+  var $image = document.createElement('img');
+  $image.setAttribute('src', news.image_url);
+  $div.appendChild($image)
+
+  var $div2 = document.createElement('div');
+  $div2.setAttribute('class', 'col-half');
+  $li.appendChild($div2)
+
+  var $title = document.createElement('h3');
+  $title.textContent = news.title;
+  $div2.appendChild($title)
+
+  var $link = document.createElement('a');
+  $link.setAttribute('href', news.news_url);
+  $link.setAttribute('target', '_blank');
+  $div2.appendChild($link)
+
+  $newsUl.appendChild($li)
+  return $li
+
+}
