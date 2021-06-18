@@ -26,6 +26,16 @@ xhr.addEventListener('load', function () {
 
 xhr.send();
 
+// news XMLHttpRequest
+var xhr2 = new XMLHttpRequest();
+xhr2.open('GET', 'https://cryptonews-api.com/api/v1/category?section=general&items=10&token=115nzgq46bkciplsspiurjsbqrgsqy33fy4fjvee');
+xhr2.responseType = 'json';
+xhr2.addEventListener('load', function () {
+  console.log(xhr2.status);
+  console.log(xhr2.response);
+  data.news = xhr2.response
+});
+xhr2.send();
 
 // closing intro video
 $CloseVideo.addEventListener('click', function (event) {
@@ -408,8 +418,9 @@ $yesButton.addEventListener('click', function () {
 });
 
 
-var $newsUl = document.querySelector('.news-post')
+
 function renderNews(news){
+  var $newsUl = document.querySelector('.news-list')
   var $li = document.createElement('li');
   $li.setAttribute('class', 'new-row news-post');
 
@@ -419,6 +430,7 @@ function renderNews(news){
 
   var $image = document.createElement('img');
   $image.setAttribute('src', news.image_url);
+  $image.setAttribute('class', 'news-icon');
   $div.appendChild($image)
 
   var $div2 = document.createElement('div');
@@ -427,6 +439,7 @@ function renderNews(news){
 
   var $title = document.createElement('h3');
   $title.textContent = news.title;
+  $title.setAttribute('class', 'news-headline');
   $div2.appendChild($title)
 
   var $link = document.createElement('a');
@@ -436,5 +449,14 @@ function renderNews(news){
 
   $newsUl.appendChild($li)
   return $li
-
 }
+
+
+
+
+window.addEventListener('DOMContentLoaded', function(){
+  for (var i = 0; i < data.news.data.length; i++) {
+    renderNews(data.news.data[i])
+    console.log('render')
+  }
+})

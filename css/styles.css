@@ -116,11 +116,6 @@
   margin: 5px;
 }
 
-@media (min-width: 765px){
-  .favorite-list > ul {
-      width: 50%;
-  }
-}
 
 .fav-icon {
   position: relative;
@@ -174,5 +169,30 @@
 .news {
   border: 1px solid black;
   border-radius: 10px;
+  text-align: center;
+    font-family: 'rationale', sans-serif;
+    font-size: 2rem;
+    width: 60%;
+    position: relative;
+    left: 47%;
+    transform: translate(-50%);
+    margin-top: 30px;
 
 }
+
+.news-post{
+  position: relative;
+  left: 45%;
+  transform: translateX(-50%);
+
+}
+ @media (max-width: 765px){
+  .favorite-list > ul {
+          width: 50%;
+      }
+
+  .news {
+        width: 95%;
+        left: 49%;
+    }
+ }

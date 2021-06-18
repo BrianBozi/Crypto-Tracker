@@ -140,3 +140,12 @@ ul {
   margin-right: auto;
   margin-top: 15px;
 }
+
+
+.news-icon{
+  width: 50%
+}
+
+.news-headline{
+  font-size: 1.5rem;
+}
