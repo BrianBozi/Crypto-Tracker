@@ -103,7 +103,7 @@
 
 /* add media */
 .favorite-list > ul {
-  width: 95%;
+  width: 75%;
   position: relative;
   left: 47%;
   transform: translateX(-50%);
@@ -172,7 +172,7 @@
   text-align: center;
     font-family: 'rationale', sans-serif;
     font-size: 2rem;
-    width: 60%;
+    width: 75%;
     position: relative;
     left: 47%;
     transform: translate(-50%);
@@ -188,11 +188,11 @@
 }
  @media (max-width: 765px){
   .favorite-list > ul {
-          width: 50%;
+          width: 100%;
       }
 
   .news {
-        width: 95%;
+        width: 100%;
         left: 49%;
     }
  }
