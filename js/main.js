@@ -9,6 +9,7 @@ var $search = document.querySelector('.search-box');
 var $searchDropDown = document.querySelector('.div-container');
 var $mobileSearch = document.querySelector('.search-input');
 var $mobileSearchDropdown = document.querySelector('.mobile-container');
+var $newSection = document.querySelector('.news')
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -52,6 +53,7 @@ $searchIcon.addEventListener('click', function (event) {
   $searchModal.className = 'search-modal';
   $mobileUL.className = 'mobile-dropdown';
   $favListing.className = 'fav-ul fav-list hide-faves ' + 'hidden';
+  $newSection.className = 'news ' + 'hidden'
 
 });
 
@@ -59,6 +61,7 @@ $cancelSearch.addEventListener('click', function (event) {
   $searchModal.className = 'search-modal ' + 'hidden';
   $mobileUL.className = 'mobile-dropdown ' + 'hidden';
   $favListing.className = 'fav-ul fav-list hide-faves';
+  $newSection.className = 'news'
 });
 
 // renderFunction to create the DOM tree needed for search results
