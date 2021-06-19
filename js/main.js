@@ -175,7 +175,7 @@ $searchDropDown.addEventListener('click', function (event) {
       // console.log('data-id', $dataID);
     }
   }
-
+  $favListing.className = 'fav-ul fav-list hide-faves hidden';
 });
 
 $mobileSearchDropdown.addEventListener('click', function (event) {
@@ -199,6 +199,7 @@ $mobileSearchDropdown.addEventListener('click', function (event) {
       $searchModal.className = 'search-modal ' + 'hidden';
       $mobileUL.className = 'mobile-dropdown ' + 'hidden';
       $coinDataPage.className = 'coin-data';
+      $newSection.className = 'row news hidden';
       return;
     }
   }
@@ -248,19 +249,7 @@ function renderFavorites(coin) {
 // pass in the xhr.response.coins[i] in it
 
 var $addToFav = document.querySelector('.addToFav');
-// function coinsRquest(coin) {
 
-//   var xhr = new XMLHttpRequest();
-//   xhr.open('GET', 'https://api.coinstats.app/public/v1/coins?skip=0&limit=0&currency=USD');
-//   xhr.setRequestHeader('token', 'abc123');
-//   xhr.responseType = 'json';
-//   xhr.addEventListener('load', function () {
-//     for (var i = 0; i < xhr.response.coins[i]; i++) {
-//       renderFavorites(xhr.response.coins[i]);
-
-//     }
-//   });
-// }
 var $favListing = document.querySelector('.hide-faves');
 
 $addToFav.addEventListener('click', function () {
@@ -271,6 +260,8 @@ $addToFav.addEventListener('click', function () {
     if ($dataID === xhr.response.coins[i].id) {
       renderFavorites(xhr.response.coins[i]);
       $favListing.className = 'fav-ul fav-list hide-faves';
+
+
 
       var fav = {
         icon: xhr.response.coins[i].icon,
@@ -288,6 +279,7 @@ $addToFav.addEventListener('click', function () {
     }
   }
   $coinDataPage.className = 'coin-data ' + 'hidden';
+  $newSection.className = 'row news'
   // event.preventDefault();
 });
 
@@ -317,10 +309,14 @@ $goHome.addEventListener('click', function (event) {
   $favListing.className = 'fav-ul fav-list hide-faves';
   $addFavButton.className = 'col-half addToFavDiv';
   $removeFavButton.className = 'col-half removeFavDiv hidden';
+  $newSection.className = 'row news'
+
+
 });
 
 $favoriteClick.addEventListener('click', function (event) {
   $coinDataPage.className = 'coin-data';
+  $newSection.className = 'row news hidden'
 
   var coinName = document.querySelector('.coinName');
   var coinPriceChange = document.querySelector('.price-change');
@@ -350,17 +346,21 @@ $favoriteClick.addEventListener('click', function (event) {
 
     }
   }
+  $favListing.className = 'fav-ul fav-list hide-faves hidden';
+
 
 });
 
 $removeFavButton.addEventListener('click', function (event) {
   console.log('click');
   $popUpModal.className = 'modal-container';
+   $newSection.className = 'row news hidden'
 });
 
 $cancelRemove.addEventListener('click', function (event) {
   $popUpModal.className = 'modal-container hidden';
   console.log('clicked cancel');
+
 });
 
 // i added a entryId to the Li's to get the entry number to match the array entries in data.js
@@ -397,25 +397,16 @@ $yesButton.addEventListener('click', function () {
     }
   }
 
-  // for (var x = 0; x < data.favorites.length; x++){
-    //   updateDom(data.favorites[i])
-    // }
-
-    // function updateDom(event) {
-      //   var $favListing = document.querySelectorAll('fav-list')
-      //    $favListing.innerHTML = '';
-
-      //   for (var x = 0; x < data.favorites.length; x++) {
-        //     var renderUpdatedList = renderFavorites(data.favorites)
-        //     $favUl.appendChild(renderUpdatedList)
-  //   }
-  // }
 
   updateDom(data.favorites)
+  $addFavButton.className = 'col-half addToFavDiv';
+  $removeFavButton.className = 'col-half removeFavDiv hidden';
 
   $favListing.className = 'fav-ul fav-list hide-faves';
   $popUpModal.className = 'modal-container hidden';
   $coinDataPage.className = 'coin-data hidden';
+  $newSection.className = 'row news'
+
   data.editing = null
 
 });
