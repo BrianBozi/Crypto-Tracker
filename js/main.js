@@ -11,9 +11,9 @@ var $mobileSearch = document.querySelector('.search-input');
 var $mobileSearchDropdown = document.querySelector('.mobile-container');
 var $newSection = document.querySelector('.news')
 
-document.addEventListener('DOMContentLoaded', function () {
+// document.addEventListener('DOMContentLoaded', function () {
 
-});
+// });
 
 // XMLHttpRequest
 var xhr = new XMLHttpRequest();
@@ -35,8 +35,20 @@ xhr2.addEventListener('load', function () {
   console.log(xhr2.status);
   console.log(xhr2.response);
   data.news = xhr2.response
+  renderingNews(data.news.data)
+
 });
+
 xhr2.send();
+
+function renderingNews() {
+  for (var i = 0; i < data.news.data.length; i++) {
+    renderNews(data.news.data[i])
+    console.log('render')
+  }
+}
+
+
 
 // closing intro video
 $CloseVideo.addEventListener('click', function (event) {
@@ -283,16 +295,6 @@ $addToFav.addEventListener('click', function () {
   // event.preventDefault();
 });
 
-document.addEventListener('DOMContentLoaded', function (event) {
-  // var $favUl = document.querySelector('.fav-list');
-
-  for (var i = 0; i < data.favorites.length; i++) {
-    renderFavorites(data.favorites[i]);
-    $introVideo.className = 'hidden';
-    $favListing.className = 'fav-ul fav-list hide-faves';
-
-  }
-});
 
 // go home btn
 var $goHome = document.querySelector('.goHome');
@@ -449,9 +451,23 @@ function renderNews(news){
 
 
 
-window.addEventListener('DOMContentLoaded', function(){
-  for (var i = 0; i < data.news.data.length; i++) {
-    renderNews(data.news.data[i])
-    console.log('render')
+// function renderingNews(){
+//   for (var i = 0; i < data.news.data.length; i++) {
+//     renderNews(data.news.data[i])
+//     console.log('render')
+//   }
+// }
+
+// window.onload = renderingNews(data.news.data)
+// renderingNews(data.news.data)
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  // var $favUl = document.querySelector('.fav-list');
+  renderingNews(data.news.data)
+  for (var i = 0; i < data.favorites.length; i++) {
+    renderFavorites(data.favorites[i]);
+    $introVideo.className = 'hidden';
+    $favListing.className = 'fav-ul fav-list hide-faves';
+
   }
-})
+});
