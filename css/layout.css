@@ -86,18 +86,6 @@ header {
   }
 }
 
-ul {
-  border: 1px solid yellow;
-  font-family: 'Russo one', sans-serif;
-  border-radius: 10px;
-  width: 200px;
-  position: absolute;
-  left: 1%;
-  transform: translateX(-1%);
-  background-color: white;
-  list-style: none;
-  padding-bottom: 10px;
-}
 
 .li-icon {
   width: 10%;
@@ -140,3 +128,28 @@ ul {
   margin-right: auto;
   margin-top: 15px;
 }
+
+
+.news-icon{
+  width: 50%;
+  padding-top: 10px;
+}
+
+.news-headline{
+  font-size: 1.5rem;
+}
+
+  .div-container {
+   border: 1px solid black;
+   font-family: 'Russo one', sans-serif;
+   border-radius: 10px;
+   width: 200px;
+   position: absolute;
+   left: 77%;
+   top: 100px;
+   z-index: 1;
+   transform: translateX(-1%);
+   background-color: white;
+   list-style: none;
+   padding-bottom: 10px;
+  }

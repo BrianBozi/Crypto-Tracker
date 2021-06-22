@@ -9,10 +9,11 @@ var $search = document.querySelector('.search-box');
 var $searchDropDown = document.querySelector('.div-container');
 var $mobileSearch = document.querySelector('.search-input');
 var $mobileSearchDropdown = document.querySelector('.mobile-container');
+var $newSection = document.querySelector('.news')
 
-document.addEventListener('DOMContentLoaded', function () {
+// document.addEventListener('DOMContentLoaded', function () {
 
-});
+// });
 
 // XMLHttpRequest
 var xhr = new XMLHttpRequest();
@@ -25,6 +26,29 @@ xhr.addEventListener('load', function () {
 });
 
 xhr.send();
+
+// news XMLHttpRequest
+var xhr2 = new XMLHttpRequest();
+xhr2.open('GET', 'https://cryptonews-api.com/api/v1/category?section=general&items=10&token=115nzgq46bkciplsspiurjsbqrgsqy33fy4fjvee');
+xhr2.responseType = 'json';
+xhr2.addEventListener('load', function () {
+  console.log(xhr2.status);
+  console.log(xhr2.response);
+  data.news = xhr2.response
+  renderingNews(data.news.data)
+
+});
+
+xhr2.send();
+
+function renderingNews() {
+  for (var i = 0; i < data.news.data.length; i++) {
+    renderNews(data.news.data[i])
+    console.log('render')
+  }
+}
+
+
 
 // closing intro video
 $CloseVideo.addEventListener('click', function (event) {
@@ -41,6 +65,7 @@ $searchIcon.addEventListener('click', function (event) {
   $searchModal.className = 'search-modal';
   $mobileUL.className = 'mobile-dropdown';
   $favListing.className = 'fav-ul fav-list hide-faves ' + 'hidden';
+  $newSection.className = 'news ' + 'hidden'
 
 });
 
@@ -48,6 +73,7 @@ $cancelSearch.addEventListener('click', function (event) {
   $searchModal.className = 'search-modal ' + 'hidden';
   $mobileUL.className = 'mobile-dropdown ' + 'hidden';
   $favListing.className = 'fav-ul fav-list hide-faves';
+  $newSection.className = 'news'
 });
 
 // renderFunction to create the DOM tree needed for search results
@@ -161,7 +187,7 @@ $searchDropDown.addEventListener('click', function (event) {
       // console.log('data-id', $dataID);
     }
   }
-
+  $favListing.className = 'fav-ul fav-list hide-faves hidden';
 });
 
 $mobileSearchDropdown.addEventListener('click', function (event) {
@@ -185,6 +211,7 @@ $mobileSearchDropdown.addEventListener('click', function (event) {
       $searchModal.className = 'search-modal ' + 'hidden';
       $mobileUL.className = 'mobile-dropdown ' + 'hidden';
       $coinDataPage.className = 'coin-data';
+      $newSection.className = 'row news hidden';
       return;
     }
   }
@@ -234,19 +261,7 @@ function renderFavorites(coin) {
 // pass in the xhr.response.coins[i] in it
 
 var $addToFav = document.querySelector('.addToFav');
-// function coinsRquest(coin) {
 
-//   var xhr = new XMLHttpRequest();
-//   xhr.open('GET', 'https://api.coinstats.app/public/v1/coins?skip=0&limit=0&currency=USD');
-//   xhr.setRequestHeader('token', 'abc123');
-//   xhr.responseType = 'json';
-//   xhr.addEventListener('load', function () {
-//     for (var i = 0; i < xhr.response.coins[i]; i++) {
-//       renderFavorites(xhr.response.coins[i]);
-
-//     }
-//   });
-// }
 var $favListing = document.querySelector('.hide-faves');
 
 $addToFav.addEventListener('click', function () {
@@ -257,6 +272,8 @@ $addToFav.addEventListener('click', function () {
     if ($dataID === xhr.response.coins[i].id) {
       renderFavorites(xhr.response.coins[i]);
       $favListing.className = 'fav-ul fav-list hide-faves';
+
+
 
       var fav = {
         icon: xhr.response.coins[i].icon,
@@ -274,19 +291,10 @@ $addToFav.addEventListener('click', function () {
     }
   }
   $coinDataPage.className = 'coin-data ' + 'hidden';
+  $newSection.className = 'row news'
   // event.preventDefault();
 });
 
-document.addEventListener('DOMContentLoaded', function (event) {
-  // var $favUl = document.querySelector('.fav-list');
-
-  for (var i = 0; i < data.favorites.length; i++) {
-    renderFavorites(data.favorites[i]);
-    $introVideo.className = 'hidden';
-    $favListing.className = 'fav-ul fav-list hide-faves';
-
-  }
-});
 
 // go home btn
 var $goHome = document.querySelector('.goHome');
@@ -303,10 +311,14 @@ $goHome.addEventListener('click', function (event) {
   $favListing.className = 'fav-ul fav-list hide-faves';
   $addFavButton.className = 'col-half addToFavDiv';
   $removeFavButton.className = 'col-half removeFavDiv hidden';
+  $newSection.className = 'row news'
+
+
 });
 
 $favoriteClick.addEventListener('click', function (event) {
   $coinDataPage.className = 'coin-data';
+  $newSection.className = 'row news hidden'
 
   var coinName = document.querySelector('.coinName');
   var coinPriceChange = document.querySelector('.price-change');
@@ -336,17 +348,21 @@ $favoriteClick.addEventListener('click', function (event) {
 
     }
   }
+  $favListing.className = 'fav-ul fav-list hide-faves hidden';
+
 
 });
 
 $removeFavButton.addEventListener('click', function (event) {
   console.log('click');
   $popUpModal.className = 'modal-container';
+   $newSection.className = 'row news hidden'
 });
 
 $cancelRemove.addEventListener('click', function (event) {
   $popUpModal.className = 'modal-container hidden';
   console.log('clicked cancel');
+
 });
 
 // i added a entryId to the Li's to get the entry number to match the array entries in data.js
@@ -383,25 +399,75 @@ $yesButton.addEventListener('click', function () {
     }
   }
 
-  // for (var x = 0; x < data.favorites.length; x++){
-    //   updateDom(data.favorites[i])
-    // }
-
-    // function updateDom(event) {
-      //   var $favListing = document.querySelectorAll('fav-list')
-      //    $favListing.innerHTML = '';
-
-      //   for (var x = 0; x < data.favorites.length; x++) {
-        //     var renderUpdatedList = renderFavorites(data.favorites)
-        //     $favUl.appendChild(renderUpdatedList)
-  //   }
-  // }
 
   updateDom(data.favorites)
+  $addFavButton.className = 'col-half addToFavDiv';
+  $removeFavButton.className = 'col-half removeFavDiv hidden';
 
   $favListing.className = 'fav-ul fav-list hide-faves';
   $popUpModal.className = 'modal-container hidden';
   $coinDataPage.className = 'coin-data hidden';
+  $newSection.className = 'row news'
+
   data.editing = null
 
+});
+
+
+
+function renderNews(news){
+  var $newsUl = document.querySelector('.news-list')
+  var $li = document.createElement('li');
+  $li.setAttribute('class', 'new-row news-post');
+
+  var $div = document.createElement('div');
+  $div.setAttribute('class', 'col-half');
+  $li.appendChild($div)
+
+  var $image = document.createElement('img');
+  $image.setAttribute('src', news.image_url);
+  $image.setAttribute('class', 'news-icon');
+  $div.appendChild($image)
+
+  var $div2 = document.createElement('div');
+  $div2.setAttribute('class', 'col-half');
+  $li.appendChild($div2)
+
+  var $title = document.createElement('h3');
+  $title.textContent = news.title;
+  $title.setAttribute('class', 'news-headline');
+  $div2.appendChild($title)
+
+  var $link = document.createElement('a');
+  $link.setAttribute('href', news.news_url);
+  $link.setAttribute('target', '_blank');
+  $link.textContent = 'Read Article'
+  $div2.appendChild($link)
+
+  $newsUl.appendChild($li)
+  return $li
+}
+
+
+
+
+// function renderingNews(){
+//   for (var i = 0; i < data.news.data.length; i++) {
+//     renderNews(data.news.data[i])
+//     console.log('render')
+//   }
+// }
+
+// window.onload = renderingNews(data.news.data)
+// renderingNews(data.news.data)
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  // var $favUl = document.querySelector('.fav-list');
+  renderingNews(data.news.data)
+  for (var i = 0; i < data.favorites.length; i++) {
+    renderFavorites(data.favorites[i]);
+    $introVideo.className = 'hidden';
+    $favListing.className = 'fav-ul fav-list hide-faves';
+
+  }
 });
