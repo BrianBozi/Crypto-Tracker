@@ -131,11 +131,23 @@
 
 @media (min-width: 765px){
   .favorite-list > ul {
-      width: 50%;
+      width: 65%;
   }
 
   .coin-data{
-    width: 50%;
+    width: 65%;
+  }
+}
+
+@media (min-width: 749px) {
+  .search-bar{
+    left: 73%;
+  }
+
+  header{
+    position: relative;
+    top: 40px;
+    left: 20%;
   }
 }
 
@@ -188,8 +200,3 @@
   justify-content: center;
   margin-bottom: 20px;
 }
-
-/* @media
-.coin-data{
-    width: 100%;
-  } */
