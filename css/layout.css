@@ -84,7 +84,7 @@ header {
   .favorite-list > ul {
     width: 65%;
   }
-}
+
 
 ul {
   border: 1px solid yellow;
@@ -101,8 +101,6 @@ ul {
 
 .li-icon {
   width: 10%;
-
-  /* position: relative; */
   top: 6px;
   padding: 2px;
 }
@@ -139,4 +137,9 @@ ul {
   margin-left: auto;
   margin-right: auto;
   margin-top: 15px;
+}
+
+button,
+.fav-list {
+  cursor: pointer;
 }
