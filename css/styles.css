@@ -103,9 +103,9 @@
 
 /* add media */
 .favorite-list > ul {
-  width: 95%;
+  width: 97%;
   position: relative;
-  left: 47%;
+  left: 50%;
   transform: translateX(-50%);
   padding: 5px;
   border: 1px solid grey;
@@ -116,9 +116,26 @@
   margin: 5px;
 }
 
+.coin-data {
+  font-family: 'Russo one', sans-serif;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #ededed;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  width: 95%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 @media (min-width: 765px){
   .favorite-list > ul {
       width: 50%;
+  }
+
+  .coin-data{
+    width: 50%;
   }
 }
 
@@ -139,6 +156,7 @@
   border-radius: 10px;
   font-size: 18px;
   padding: 15px;
+  width: 175px;
 
 }
 
@@ -170,3 +188,8 @@
   justify-content: center;
   margin-bottom: 20px;
 }
+
+/* @media
+.coin-data{
+    width: 100%;
+  } */

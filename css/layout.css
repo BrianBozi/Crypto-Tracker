@@ -118,14 +118,18 @@ ul {
   display: flex;
 }
 
-.coin-data {
+/* .coin-data {
   font-family: 'Russo one', sans-serif;
   border: 1px solid black;
   border-radius: 10px;
   background-color: #ededed;
   margin-bottom: 20px;
   padding-bottom: 10px;
-}
+  width: 50%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+} */
 
 .col-half {
   flex-basis: calc(100% / 2);
