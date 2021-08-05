@@ -48,46 +48,8 @@ header {
     display: show; */
   }
 
-@media (max-width: 1124px) {
-  /* .search-bar {
-    left: 70%;
-  } */
-
-  /* .div-container {
-    left: 70%;
-  }
-
-  .icon {
-    color: white;
-  } */
 
 
-}
-
-@media (max-width: 747px) {
-  /* .search-box {
-    display: none;
-  } */
-
-  /* .div-container {
-    display: none;
-  }
-
-  .search-bar {
-    display: none;
-  } */
-
-  /* .iconify {
-    color: #20cc7a;
-    height: 42px;
-    width: 42px;
-    position: relative;
-    left: 90%;
-    display: show;
-  } */
-
-
-}
 
 .div-container {
   position: relative;
@@ -102,7 +64,7 @@ ul {
   border: 1px solid black;
   font-family: 'Russo one', sans-serif;
   border-radius: 10px;
-  width: 200px;
+  /* width: 200px; */
   position: absolute;
   left: 1%;
   transform: translateX(-1%);
@@ -243,6 +205,7 @@ position: fixed;
      height: 90%;
      margin-bottom: 10px;
    }
+
  }
 
 

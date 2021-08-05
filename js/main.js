@@ -10,14 +10,20 @@ var $searchDropDown = document.querySelector('.div-container');
 var $mobileSearch = document.querySelector('.search-input');
 var $mobileSearchDropdown = document.querySelector('.mobile-container');
 const spinner = document.querySelector('.spinner')
+var $newSection = document.querySelector('.news')
 
-// const coin = [
-//    {id: "not Found"}
-// ]
+
 
 
 window.addEventListener('load', function(){
   spinner.style.display = 'none'
+  function test() {
+    var coins = data.name.coins;
+    for (var i = 0; i < data.name.coins.length; i++) {
+      renderListing(coins[i]);
+    }
+  }
+  test()
 })
 
 // document.addEventListener('DOMContentLoaded', function () {
@@ -36,6 +42,65 @@ xhr.addEventListener('load', function () {
 });
 
 xhr.send();
+
+
+// news
+var xhr2 = new XMLHttpRequest();
+xhr2.open('GET', 'https://cryptonews-api.com/api/v1/category?section=general&items=10&token=115nzgq46bkciplsspiurjsbqrgsqy33fy4fjvee');
+xhr2.responseType = 'json';
+xhr2.addEventListener('load', function () {
+  console.log(xhr2.status);
+  console.log(xhr2.response);
+  data.news = xhr2.response
+  renderingNews(data.news.data)
+
+});
+
+xhr2.send();
+
+function renderingNews() {
+  for (var i = 0; i < data.news.data.length; i++) {
+    renderNews(data.news.data[i])
+    console.log('render')
+  }
+}
+
+function renderNews(news) {
+  var $newsUl = document.querySelector('.news-list')
+  var $li = document.createElement('li');
+  $li.setAttribute('class', 'new-row news-post');
+
+  var $div = document.createElement('div');
+  $div.setAttribute('class', 'col-half');
+  $li.appendChild($div)
+
+  var $image = document.createElement('img');
+  $image.setAttribute('src', news.image_url);
+  $image.setAttribute('class', 'news-icon');
+  $div.appendChild($image)
+
+  var $div2 = document.createElement('div');
+  $div2.setAttribute('class', 'col-half');
+  $li.appendChild($div2)
+
+  var $title = document.createElement('h3');
+  $title.textContent = news.title;
+  $title.setAttribute('class', 'news-headline');
+  $div2.appendChild($title)
+
+  var $link = document.createElement('a');
+  $link.setAttribute('href', news.news_url);
+  $link.setAttribute('target', '_blank');
+  $link.textContent = 'Read Article'
+  $div2.appendChild($link)
+
+  $newsUl.appendChild($li)
+  return $li
+}
+
+
+
+
 
 // closing intro video
 $CloseVideo.addEventListener('click', function (event) {
@@ -121,13 +186,13 @@ function renderListingMobile(coin) {
 
 
 
-function test (){
-  var coins = data.name.coins;
-  for (var i = 0; i < data.name.coins.length; i++) {
-    renderListing(coins[i]);
-  }
-}
-test()
+// function test (){
+//   var coins = data.name.coins;
+//   for (var i = 0; i < data.name.coins.length; i++) {
+//     renderListing(coins[i]);
+//   }
+// }
+// test()
 
 
 // new idea
@@ -139,6 +204,9 @@ $search.addEventListener('click', function (event) {
     // var coins = data.name.coins;
   if ($searchDropDown.className === 'div-container hidden'){
     $searchDropDown.className = "div-containe"
+    $addFavButton.className = 'col-half addToFavDiv';
+    $removeFavButton.className = 'col-half removeFavDiv hidden';
+
   } else {
     $searchDropDown.className = "div-container hidden"
   }
@@ -211,37 +279,38 @@ $searchDropDown.addEventListener('click', function (event) {
       coinVol.textContent = coins[i].volume;
       $coinDataPage.className = 'coin-data';
       $searchDropDown.className = 'div-container ' + 'hidden';
+      $favListing.className = 'fav-list hide-faves hidden'
       // console.log('data-id', $dataID);
     }
   }
 
 });
 
-$mobileSearchDropdown.addEventListener('click', function (event) {
+// $mobileSearchDropdown.addEventListener('click', function (event) {
 
-  var coins = data.name.coins;
-  var coinName = document.querySelector('.coinName');
-  var coinPriceChange = document.querySelector('.price-change');
-  var coinPrice = document.querySelector('.price');
-  var coinVol = document.querySelector('.vol');
-  var coinImage = document.querySelector('.coinImage');
-  var $dataID = event.target.getAttribute('data-id');
+//   var coins = data.name.coins;
+//   var coinName = document.querySelector('.coinName');
+//   var coinPriceChange = document.querySelector('.price-change');
+//   var coinPrice = document.querySelector('.price');
+//   var coinVol = document.querySelector('.vol');
+//   var coinImage = document.querySelector('.coinImage');
+//   var $dataID = event.target.getAttribute('data-id');
 
-  for (var i = 0; i < data.name.coins.length; i++) {
-    if ($dataID === data.name.coins[i].id) {
-      coinName.setAttribute('data-ID', coins[i].id);
-      coinName.textContent = coins[i].name;
-      coinImage.setAttribute('src', coins[i].icon);
-      coinPriceChange.textContent = coins[i].priceChange1d;
-      coinPrice.textContent = coins[i].price;
-      coinVol.textContent = coins[i].volume;
-      $searchModal.className = 'search-modal ' + 'hidden';
-      $mobileUL.className = 'mobile-dropdown ' + 'hidden';
-      $coinDataPage.className = 'coin-data';
-      return;
-    }
-  }
-});
+//   for (var i = 0; i < data.name.coins.length; i++) {
+//     if ($dataID === data.name.coins[i].id) {
+//       coinName.setAttribute('data-ID', coins[i].id);
+//       coinName.textContent = coins[i].name;
+//       coinImage.setAttribute('src', coins[i].icon);
+//       coinPriceChange.textContent = coins[i].priceChange1d;
+//       coinPrice.textContent = coins[i].price;
+//       coinVol.textContent = coins[i].volume;
+//       $searchModal.className = 'search-modal ' + 'hidden';
+//       $mobileUL.className = 'mobile-dropdown ' + 'hidden';
+//       $coinDataPage.className = 'coin-data';
+//       return;
+//     }
+//   }
+// });
 
 // render for fav list
 var $favUl = document.querySelector('.fav-list');
@@ -287,25 +356,11 @@ function renderFavorites(coin) {
 // pass in the xhr.response.coins[i] in it
 
 var $addToFav = document.querySelector('.addToFav');
-// function coinsRquest(coin) {
 
-//   var xhr = new XMLHttpRequest();
-//   xhr.open('GET', 'https://api.coinstats.app/public/v1/coins?skip=0&limit=0&currency=USD');
-//   xhr.setRequestHeader('token', 'abc123');
-//   xhr.responseType = 'json';
-//   xhr.addEventListener('load', function () {
-//     for (var i = 0; i < xhr.response.coins[i]; i++) {
-//       renderFavorites(xhr.response.coins[i]);
-
-//     }
-//   });
-// }
 var $favListing = document.querySelector('.hide-faves');
 
 $addToFav.addEventListener('click', function () {
   var $dataID = document.querySelector('.coinName').getAttribute('data-ID');
-  // console.log('click');
-  // console.log($dataID);
   for (var i = 0; i < xhr.response.coins.length; i++) {
     if ($dataID === xhr.response.coins[i].id) {
       renderFavorites(xhr.response.coins[i]);
@@ -340,6 +395,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
   }
 });
+
+
+// $addFavButton.className = 'col-half addToFavDiv';
+// $removeFavButton.className = 'col-half removeFavDiv hidden';
+
 
 // go home btn
 var $goHome = document.querySelector('.goHome');
@@ -393,12 +453,13 @@ $favoriteClick.addEventListener('click', function (event) {
 });
 
 $removeFavButton.addEventListener('click', function (event) {
-  console.log('click');
   $popUpModal.className = 'modal-container';
+
 });
 
 $cancelRemove.addEventListener('click', function (event) {
   $popUpModal.className = 'modal-container hidden';
+
   console.log('clicked cancel');
 });
 
@@ -428,7 +489,6 @@ $yesButton.addEventListener('click', function () {
       console.log('data editing', data.editing);
       if(data.editing.entryId === data.favorites[i].entryId){
         data.favorites.splice(i, 1);
-        console.log('should be splicing')
 
 
 
@@ -436,19 +496,6 @@ $yesButton.addEventListener('click', function () {
     }
   }
 
-  // for (var x = 0; x < data.favorites.length; x++){
-    //   updateDom(data.favorites[i])
-    // }
-
-    // function updateDom(event) {
-      //   var $favListing = document.querySelectorAll('fav-list')
-      //    $favListing.innerHTML = '';
-
-      //   for (var x = 0; x < data.favorites.length; x++) {
-        //     var renderUpdatedList = renderFavorites(data.favorites)
-        //     $favUl.appendChild(renderUpdatedList)
-  //   }
-  // }
 
   updateDom(data.favorites)
 
