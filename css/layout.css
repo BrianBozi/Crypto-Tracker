@@ -2,6 +2,7 @@ header {
   color: #20cc7a;
   font-family: 'Rationale', sans-serif;
   font-size: 48px;
+  width: 50%;
 }
 
 .container {
@@ -33,46 +34,58 @@ header {
 }
 
 .icon {
-  color: white;
+  border: 2px solid blue;
+    width: 50px;
+    position: relative;
+    left: 80%;
 }
+
+.iconify {
+    color: #20cc7a;
+    height: 42px;
+    width: 42px;
+    /* position: relative;
+    left: 90%;
+    display: show; */
+  }
 
 @media (max-width: 1124px) {
   /* .search-bar {
     left: 70%;
   } */
 
-  .div-container {
+  /* .div-container {
     left: 70%;
   }
 
   .icon {
     color: white;
-  }
+  } */
 
 
 }
 
 @media (max-width: 747px) {
-  .search-box {
+  /* .search-box {
     display: none;
-  }
+  } */
 
-  .div-container {
+  /* .div-container {
     display: none;
   }
 
   .search-bar {
     display: none;
-  }
+  } */
 
-  .iconify {
+  /* .iconify {
     color: #20cc7a;
     height: 42px;
     width: 42px;
     position: relative;
     left: 90%;
     display: show;
-  }
+  } */
 
 
 }
@@ -87,7 +100,7 @@ header {
 
 
 ul {
-  border: 1px solid yellow;
+  border: 1px solid black;
   font-family: 'Russo one', sans-serif;
   border-radius: 10px;
   width: 200px;
@@ -110,6 +123,11 @@ ul {
   margin-left: 15px;
   position: relative;
   top: 5px;
+}
+
+.listing{
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
 }
 
 /* coin data page */
@@ -146,4 +164,62 @@ ul {
 button,
 .fav-list {
   cursor: pointer;
+}
+
+.spinner {
+  margin: 100px auto 0;
+  width: 70px;
+  text-align: center;
+  background-color: white;
+  z-index: 1;
+  bottom: 1px;
+  border: 1px solid red;
+  top: 50%;
+  left: 50%;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #333;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+#search-ul{
+  position: fixed;
+    left: 70%;
+    z-index: 1;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 400px;
+    width: 250px;
 }

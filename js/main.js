@@ -9,10 +9,20 @@ var $search = document.querySelector('.search-box');
 var $searchDropDown = document.querySelector('.div-container');
 var $mobileSearch = document.querySelector('.search-input');
 var $mobileSearchDropdown = document.querySelector('.mobile-container');
+const spinner = document.querySelector('.spinner')
 
-document.addEventListener('DOMContentLoaded', function () {
+// const coin = [
+//    {id: "not Found"}
+// ]
 
-});
+
+window.addEventListener('load', function(){
+  spinner.style.display = 'none'
+})
+
+// document.addEventListener('DOMContentLoaded', function () {
+
+// });
 
 // XMLHttpRequest
 var xhr = new XMLHttpRequest();
@@ -22,6 +32,7 @@ xhr.responseType = 'json';
 xhr.addEventListener('load', function () {
 
   data.name = xhr.response;
+  console.log(xhr.response)
 });
 
 xhr.send();
@@ -37,18 +48,18 @@ $CloseVideo.addEventListener('click', function (event) {
 
 // to show search and cancel modal for search
 
-$searchIcon.addEventListener('click', function (event) {
-  $searchModal.className = 'search-modal';
-  $mobileUL.className = 'mobile-dropdown';
-  $favListing.className = 'fav-ul fav-list hide-faves ' + 'hidden';
+// $searchIcon.addEventListener('click', function (event) {
+//   $searchModal.className = 'search-modal';
+//   $mobileUL.className = 'mobile-dropdown';
+//   $favListing.className = 'fav-ul fav-list hide-faves ' + 'hidden';
 
-});
+// });
 
-$cancelSearch.addEventListener('click', function (event) {
-  $searchModal.className = 'search-modal ' + 'hidden';
-  $mobileUL.className = 'mobile-dropdown ' + 'hidden';
-  $favListing.className = 'fav-ul fav-list hide-faves';
-});
+// $cancelSearch.addEventListener('click', function (event) {
+//   $searchModal.className = 'search-modal ' + 'hidden';
+//   $mobileUL.className = 'mobile-dropdown ' + 'hidden';
+//   $favListing.className = 'fav-ul fav-list hide-faves';
+// });
 
 // renderFunction to create the DOM tree needed for search results
 var $ul = document.getElementById('search-ul');
@@ -86,26 +97,53 @@ function renderListingMobile(coin) {
 
 // listnening for the key press
 
-$search.addEventListener('input', function (event) {
-  // console.log(event.target);
+// $search.addEventListener('input', function (event) {
+//   // console.log(event.target);
 
-  var value = event.target.value.toLowerCase();
+//   var value = event.target.value.toLowerCase();
+//   // console.log(value);
+//   if (data.name.coins.length) {
+//     var coins = data.name.coins;
+
+//     for (var i = 0; i < data.name.coins.length; i++) {
+//       if (value === coins[i].id) {
+//         // console.log('matches ID');
+//         renderListing(coins[i]);
+//         $searchDropDown.className = 'div-container';
+//         return;
+//       } else if (value !== coins[i].id) {
+//         renderListing(coin[i])
+//         $searchDropDown.className = 'div-container ' + 'hidden';
+//       }
+//     }
+//   }
+// });
+
+// new idea
+$search.addEventListener('click', function (event) {
+  // console.log(event.target);
+  // var value = event.target.value.toLowerCase();
   // console.log(value);
   if (data.name.coins.length) {
     var coins = data.name.coins;
 
     for (var i = 0; i < data.name.coins.length; i++) {
-      if (value === coins[i].id) {
+      // if (value === coins[i].id) {
         // console.log('matches ID');
         renderListing(coins[i]);
         $searchDropDown.className = 'div-container';
-        return;
-      } else if (value !== coins[i].id) {
-        $searchDropDown.className = 'div-container ' + 'hidden';
-      }
+        // return;
+      // } else if (value !== coins[i].id) {
+      //   renderListing(coin[i])
+      //   $searchDropDown.className = 'div-container ' + 'hidden';
+      // }
     }
   }
 });
+
+
+
+
 
 // $searchDropDown.addEventListener('click', function (event) {
 //   console.log(event.target);
