@@ -119,26 +119,41 @@ function renderListingMobile(coin) {
 //   }
 // });
 
+
+
+function test (){
+  var coins = data.name.coins;
+  for (var i = 0; i < data.name.coins.length; i++) {
+    renderListing(coins[i]);
+  }
+}
+test()
+
+
 // new idea
 $search.addEventListener('click', function (event) {
   // console.log(event.target);
   // var value = event.target.value.toLowerCase();
   // console.log(value);
-  if (data.name.coins.length) {
-    var coins = data.name.coins;
-
-    for (var i = 0; i < data.name.coins.length; i++) {
-      // if (value === coins[i].id) {
-        // console.log('matches ID');
-        renderListing(coins[i]);
-        $searchDropDown.className = 'div-container';
-        // return;
-      // } else if (value !== coins[i].id) {
-      //   renderListing(coin[i])
-      //   $searchDropDown.className = 'div-container ' + 'hidden';
-      // }
-    }
+  // if (data.name.coins.length) {
+    // var coins = data.name.coins;
+  if ($searchDropDown.className === 'div-container hidden'){
+    $searchDropDown.className = "div-containe"
+  } else {
+    $searchDropDown.className = "div-container hidden"
   }
+
+    // for (var i = 0; i < data.name.coins.length; i++) {
+    //   // if (value === coins[i].id) {
+    //     // console.log('matches ID');
+    //     renderListing(coins[i]);
+    //     // return;
+    //   // } else if (value !== coins[i].id) {
+    //   //   renderListing(coin[i])
+    //   //   $searchDropDown.className = 'div-container ' + 'hidden';
+    //   // }
+    // }
+  // }
 });
 
 

@@ -34,7 +34,6 @@ header {
 }
 
 .icon {
-  border: 2px solid blue;
     width: 50px;
     position: relative;
     left: 80%;
@@ -162,7 +161,9 @@ ul {
 }
 
 button,
-.fav-list {
+.fav-list,
+.listing,
+.icon {
   cursor: pointer;
 }
 
@@ -216,10 +217,58 @@ button,
 
 #search-ul{
   position: fixed;
-    left: 70%;
+    /* left: 40%; */
     z-index: 1;
     overflow: hidden;
     overflow-y: scroll;
-    height: 400px;
-    width: 250px;
+    height: 100%;
+    width: 99%;
 }
+
+/*
+#search ul iphone
+position: fixed;
+    left: 3%;
+    z-index: 1;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 100%;
+    width: 95%;
+ */
+
+ @media screen and (min-width: 768px){
+   #search-ul{
+     width: 70%;
+     left: 15%;
+     height: 90%;
+     margin-bottom: 10px;
+   }
+ }
+
+
+ @media screen and (min-width: 1280px){
+   #search-ul{
+     width: 300px;
+     left: 61%;
+     height: 300px;
+     margin-bottom: 10px;
+   }
+
+   .modal-container{
+     width: 50%;
+   }
+ }
+
+ @media screen and (min-width: 1680px){
+   #search-ul{
+     width: 300px;
+     left: 63%;
+
+   }
+ }
+
+ @media screen and (min-width: 2200px){
+   #search-ul{
+     left: 67%;
+   }
+ }
