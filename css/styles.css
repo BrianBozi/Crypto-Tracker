@@ -182,11 +182,12 @@ a{
 
 .modal-container {
 
-  box-shadow: 0 0 10000px 1000px rgba(16, 16, 17, 0.9);
+  box-shadow: 0 0 100000px 10000px rgba(16, 16, 17, 0.9);
   position: relative;
   left: 50%;
   bottom: 30vh;
   transform: translateX(-50%);
+  z-index: 1;
 }
 
 .delete-modal {
@@ -214,9 +215,7 @@ a{
   font-family: 'rationale', sans-serif;
   font-size: 1rem;
   border-bottom: 1px solid black;
-  /*  */
-  /* border: 1px solid black;
-  border-radius: 10px; */
+
   text-align: center;
     font-size: 2rem;
     width: 99%;
@@ -224,7 +223,6 @@ a{
     left: 50%;
     transform: translate(-50%);
     margin-top: 30px;
-    /* background-color: #F0FFFF; */
     margin-left: 10px;
 }
 
@@ -263,6 +261,7 @@ a{
 
 .news-list{
   background-color: #F0FFFF;
+  width: 99%;
 }
 
 

@@ -113,6 +113,8 @@ ul {
 .col-half {
   flex-basis: calc(100% / 2);
   text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .new-row > img {
@@ -187,16 +189,7 @@ button,
     width: 99%;
 }
 
-/*
-#search ul iphone
-position: fixed;
-    left: 3%;
-    z-index: 1;
-    overflow: hidden;
-    overflow-y: scroll;
-    height: 100%;
-    width: 95%;
- */
+
 
  @media screen and (min-width: 768px){
    #search-ul{
