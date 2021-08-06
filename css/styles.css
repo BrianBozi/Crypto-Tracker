@@ -19,7 +19,6 @@ header {
 }
 
 .icon {
-    /* width: 50px; */
     position: relative;
     left: 80%;
 }
@@ -28,6 +27,10 @@ header {
     color: #20cc7a;
     height: 42px;
     width: 42px;
+  }
+
+  .search-box{
+    width: 80px
   }
 
 .alert {
@@ -69,45 +72,6 @@ header {
 }
 
 
-
-/* .search-modal {
-  border: 1px solid;
-  height: 40px;
-  border-radius: 10px;
-  overflow: auto;
-  position: relative;
-  bottom: 55px;
-  background-color: white;
-  box-shadow: 0 0 10000px 1000px rgba(16, 16, 17, 0.9);
-} */
-
-/* .search-input {
-  width: 80%;
-  height: 35px;
-  border: none;
-} */
-
-/* .cancel-modal {
-  background-color: red;
-  color: white;
-  border-radius: 10px;
-  border: none;
-} */
-
-/* .mobile-dropdown {
-  background-color: white;
-  position: relative;
-  left: 20%;
-  width: 300px;
-} */
-
-/* #mobile-ul {
-  background-color: white;
-  position: relative;
-  left: 6%;
-  width: 90%;
-} */
-
 /* adding to favorites */
 .go-home {
   background-color: red;
@@ -121,6 +85,7 @@ header {
   border-radius: 10px;
   font-size: 1rem;
   padding: 15px;
+  margin: 0 5px;
 }
 
 .favorite-list {
@@ -134,7 +99,6 @@ header {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  /* padding: 5px; */
   border: 1px solid grey;
   background-color: azure;
 }
@@ -223,7 +187,6 @@ header {
 
 /* news section */
 .news {
-
   text-align: center;
   font-family: 'rationale', sans-serif;
   font-size: 1rem;
@@ -253,7 +216,6 @@ header {
   border-radius: 10px;
   margin-bottom: 1rem;
   background-color: white;
-
   margin-top: .8rem;
   width: 95%;
 }
