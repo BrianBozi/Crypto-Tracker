@@ -1,49 +1,7 @@
-header {
-  color: #20cc7a;
-  font-family: 'Rationale', sans-serif;
-  font-size: 48px;
-  width: 50%;
-}
-
 .container {
   width: 90%;
   margin: 0 auto;
 }
-
-.top-line {
-  border-bottom: 1px solid black;
-  padding-bottom: 10px;
-}
-
-.search-bar {
-  position: relative;
-  left: 80%;
-  border: 1px solid;
-  padding: 5px 5px;
-  border-radius: 10px;
-}
-
-.search-box {
-  border: none;
-}
-
-.searchBTN {
-  border: none;
-  color: #20cc7a;
-  background-color: white;
-}
-
-.icon {
-    width: 50px;
-    position: relative;
-    left: 80%;
-}
-
-.iconify {
-    color: #20cc7a;
-    height: 42px;
-    width: 42px;
-  }
 
 
 .div-container {
@@ -54,13 +12,10 @@ header {
     width: 65%;
   }
 
-
-
 ul {
   border: 1px solid black;
   font-family: 'Russo one', sans-serif;
   border-radius: 10px;
-  /* width: 200px; */
   position: absolute;
   left: 1%;
   transform: translateX(-1%);
@@ -132,7 +87,6 @@ button,
   width: 18px;
   height: 18px;
   background-color: #333;
-
   border-radius: 100%;
   display: inline-block;
   -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
@@ -166,7 +120,6 @@ button,
 
 #search-ul{
   position: fixed;
-    /* left: 40%; */
     z-index: 1;
     overflow: hidden;
     overflow-y: scroll;

@@ -5,11 +5,38 @@
 a{
   font-size: 1rem;
 }
+/* Top Nav */
+header {
+  color: #20cc7a;
+  font-family: 'Rationale', sans-serif;
+  font-size: 3rem;
+  width: 50%;
+}
+
+.top-line {
+  border-bottom: 1px solid black;
+  padding-bottom: .6rem;
+}
+
+.icon {
+    position: relative;
+    left: 80%;
+}
+
+.iconify {
+    color: #20cc7a;
+    height: 42px;
+    width: 42px;
+  }
+
+  .search-box{
+    width: 80px
+  }
 
 .alert {
   background-color: #20cc7a;
   text-align: center;
-  margin-top: 10px;
+  margin-top: .5rem;
   border-radius: 10px;
   padding: 3px;
   font-family: 'rationale', sans-serif;
@@ -18,83 +45,47 @@ a{
 .use-search {
   background-color: #20cc7a;
   text-align: center;
-  margin-top: 10px;
+  margin-top: .5rem;
   border-radius: 10px;
   padding: 3px;
   font-family: 'rationale', sans-serif;
 }
 
+/* youtube video */
 .yt-close {
   background-color: #f41515;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
   font-family: 'rationale', sans-serif;
-  font-size: 24px;
-  margin-top: 10px;
+  font-size: 2rem;
+  margin-top: .6rem;
   padding: 5px 20px;
   border-radius: 10px;
   border: none;
 }
 
 .yt-player {
-  margin-top: 15px;
+  margin-top: .8rem;
   justify-content: center;
   display: flex;
 }
 
 
-
-.search-modal {
-  border: 1px solid;
-  height: 40px;
-  border-radius: 10px;
-  overflow: auto;
-  position: relative;
-  bottom: 55px;
-  background-color: white;
-  box-shadow: 0 0 10000px 1000px rgba(16, 16, 17, 0.9);
-}
-
-.search-input {
-  width: 80%;
-  height: 35px;
-  border: none;
-}
-
-.cancel-modal {
-  background-color: red;
-  color: white;
-  border-radius: 10px;
-  border: none;
-}
-
-.mobile-dropdown {
-  background-color: white;
-  position: relative;
-  left: 20%;
-  width: 300px;
-}
-
-#mobile-ul {
-  background-color: white;
-  position: relative;
-  left: 6%;
-  width: 90%;
-}
-
-.goHome {
+/* adding to favorites */
+.go-home {
   background-color: red;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 1rem;
   padding: 15px;
   margin: 0 5px;
 }
 
-.addToFav {
+.add-to-fav {
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 1rem;
   padding: 15px;
+  margin: 0 5px;
 }
 
 .favorite-list {
@@ -108,7 +99,6 @@ a{
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  /* padding: 5px; */
   border: 1px solid grey;
   background-color: azure;
 }
@@ -122,7 +112,7 @@ a{
   border: 1px solid black;
   border-radius: 10px;
   background-color: #ededed;
-  margin-bottom: 20px;
+  margin-bottom: 1.1rem;
   padding-bottom: 10px;
   width: 95%;
   position: relative;
@@ -130,7 +120,6 @@ a{
   transform: translateX(-50%);
 }
 
-/
 
 @media (min-width: 749px) {
   .search-bar{
@@ -154,15 +143,15 @@ a{
   border: 1px solid black;
   padding:10px;
   background-color: white;
-  border-radius: 10px;
-  margin-bottom: 15px;
+  border-radius: .6rem;
+  margin-bottom: .8rem;
 }
 
-.removeFav {
+/* removing from favorites */
+.remove-fav {
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 1rem;
   padding: 15px;
-  /* width: 175px; */
   margin: 0 8px;
 }
 
@@ -185,7 +174,7 @@ a{
 .cancel,
 .yes {
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 1rem;
   padding: 15px;
   width: 150px;
 }
@@ -193,11 +182,11 @@ a{
 .modal-text {
   font-family: 'rationale', sans-serif;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 1.1rem;
 }
 
+/* news section */
 .news {
-
   text-align: center;
   font-family: 'rationale', sans-serif;
   font-size: 1rem;
@@ -208,14 +197,14 @@ a{
     position: relative;
     left: 50%;
     transform: translate(-50%);
-    margin-top: 30px;
+    margin-top: 1.6rem;
 }
 
 
 .new-headlines > h3{
     font-family: 'rationale', sans-serif;
     border: 1pc solid red;
-    padding: 5px;
+    padding: .4rem;
 
 }
 
@@ -225,10 +214,9 @@ a{
   transform: translateX(-50%);
   border: 1px solid black;
   border-radius: 10px;
-  margin-bottom: 17px;
+  margin-bottom: 1rem;
   background-color: white;
-
-  margin-top: 15px;
+  margin-top: .8rem;
   width: 95%;
 }
 
