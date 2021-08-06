@@ -56,14 +56,14 @@ header {
   transform: translateX(-50%);
   font-family: 'rationale', sans-serif;
   font-size: 2rem;
-  margin-top: 10px;
+  margin-top: .6rem;
   padding: 5px 20px;
   border-radius: 10px;
   border: none;
 }
 
 .yt-player {
-  margin-top: 15px;
+  margin-top: .8rem;
   justify-content: center;
   display: flex;
 }
@@ -148,7 +148,7 @@ header {
   border: 1px solid black;
   border-radius: 10px;
   background-color: #ededed;
-  margin-bottom: 20px;
+  margin-bottom: 1.1rem;
   padding-bottom: 10px;
   width: 95%;
   position: relative;
@@ -179,8 +179,8 @@ header {
   border: 1px solid black;
   padding:10px;
   background-color: white;
-  border-radius: 10px;
-  margin-bottom: 15px;
+  border-radius: .6rem;
+  margin-bottom: .8rem;
 }
 
 /* removing from favorites */
@@ -218,7 +218,7 @@ header {
 .modal-text {
   font-family: 'rationale', sans-serif;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 1.1rem;
 }
 
 /* news section */
@@ -234,7 +234,7 @@ header {
     position: relative;
     left: 50%;
     transform: translate(-50%);
-    margin-top: 30px;
+    margin-top: 1.6rem;
 }
 
 
@@ -251,10 +251,10 @@ header {
   transform: translateX(-50%);
   border: 1px solid black;
   border-radius: 10px;
-  margin-bottom: 17px;
+  margin-bottom: 1rem;
   background-color: white;
 
-  margin-top: 15px;
+  margin-top: .8rem;
   width: 95%;
 }
 

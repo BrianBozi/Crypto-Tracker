@@ -9,11 +9,8 @@ var $search = document.querySelector('.search-box');
 var $searchDropDown = document.querySelector('.div-container');
 var $mobileSearch = document.querySelector('.search-input');
 var $mobileSearchDropdown = document.querySelector('.mobile-container');
-
 const spinner = document.querySelector('.spinner')
 var $newSection = document.querySelector('.news')
-
-
 
 
 window.addEventListener('load', function(){
@@ -27,12 +24,6 @@ window.addEventListener('load', function(){
   test()
 })
 
-// document.addEventListener('DOMContentLoaded', function () {
-
-
-// });
-
-// XMLHttpRequest
 var xhr = new XMLHttpRequest();
 
 xhr.open('GET', 'https://api.coinstats.app/public/v1/coins?skip=0&limit=0&currency=USD');
@@ -40,21 +31,15 @@ xhr.responseType = 'json';
 xhr.addEventListener('load', function () {
 
   data.name = xhr.response;
-  console.log(xhr.response)
 });
 
 xhr.send();
 
 
-
-// news
-
 var xhr2 = new XMLHttpRequest();
 xhr2.open('GET', 'https://cryptonews-api.com/api/v1/category?section=general&items=10&token=115nzgq46bkciplsspiurjsbqrgsqy33fy4fjvee');
 xhr2.responseType = 'json';
 xhr2.addEventListener('load', function () {
-  console.log(xhr2.status);
-  console.log(xhr2.response);
   data.news = xhr2.response
   renderingNews(data.news.data)
 
@@ -65,7 +50,6 @@ xhr2.send();
 function renderingNews() {
   for (var i = 0; i < data.news.data.length; i++) {
     renderNews(data.news.data[i])
-    console.log('render')
   }
 }
 
@@ -103,12 +87,6 @@ function renderNews(news) {
   return $li
 }
 
-
-
-
-
-
-// closing intro video
 $CloseVideo.addEventListener('click', function (event) {
 
   $introVideo.className = 'hidden';
@@ -117,26 +95,7 @@ $CloseVideo.addEventListener('click', function (event) {
 
 });
 
-// to show search and cancel modal for search
 
-
-// $searchIcon.addEventListener('click', function (event) {
-//   $searchModal.className = 'search-modal';
-//   $mobileUL.className = 'mobile-dropdown';
-//   $favListing.className = 'fav-ul fav-list hide-faves ' + 'hidden';
-
-
-// });
-
-
-// $cancelSearch.addEventListener('click', function (event) {
-//   $searchModal.className = 'search-modal ' + 'hidden';
-//   $mobileUL.className = 'mobile-dropdown ' + 'hidden';
-//   $favListing.className = 'fav-ul fav-list hide-faves';
-// });
-
-
-// renderFunction to create the DOM tree needed for search results
 var $ul = document.getElementById('search-ul');
 
 function renderListing(coin) {
@@ -153,65 +112,8 @@ function renderListing(coin) {
   return $ul;
 }
 
-// renderMobile
-var $mobileUL = document.getElementById('mobile-ul');
-// console.log($ul);
-function renderListingMobile(coin) {
-  var $listing = document.createElement('li');
-  var $coinIMG = document.createElement('img');
-  $listing.setAttribute('class', 'listing');
-  $listing.setAttribute('data-id', coin.id);
-  $coinIMG.setAttribute('src', coin.icon);
-  $coinIMG.setAttribute('class', 'li-coin');
-  $listing.textContent = coin.id;
 
-  $mobileUL.append($listing);
-  $listing.append($coinIMG);
-  return $mobileUL;
-}
-
-// listnening for the key press
-
-// $search.addEventListener('input', function (event) {
-//   // console.log(event.target);
-
-//   var value = event.target.value.toLowerCase();
-//   // console.log(value);
-//   if (data.name.coins.length) {
-//     var coins = data.name.coins;
-
-//     for (var i = 0; i < data.name.coins.length; i++) {
-//       if (value === coins[i].id) {
-//         // console.log('matches ID');
-//         renderListing(coins[i]);
-//         $searchDropDown.className = 'div-container';
-//         return;
-//       } else if (value !== coins[i].id) {
-//         renderListing(coin[i])
-//         $searchDropDown.className = 'div-container ' + 'hidden';
-//       }
-//     }
-//   }
-// });
-
-
-
-// function test (){
-//   var coins = data.name.coins;
-//   for (var i = 0; i < data.name.coins.length; i++) {
-//     renderListing(coins[i]);
-//   }
-// }
-// test()
-
-
-// new idea
 $search.addEventListener('click', function (event) {
-  // console.log(event.target);
-  // var value = event.target.value.toLowerCase();
-  // console.log(value);
-  // if (data.name.coins.length) {
-    // var coins = data.name.coins;
   if ($searchDropDown.className === 'div-container hidden'){
     $searchDropDown.className = "div-containe"
     $addFavButton.className = 'col-half addToFavDiv';
@@ -220,57 +122,12 @@ $search.addEventListener('click', function (event) {
   } else {
     $searchDropDown.className = "div-container hidden"
   }
-
-    // for (var i = 0; i < data.name.coins.length; i++) {
-    //   // if (value === coins[i].id) {
-    //     // console.log('matches ID');
-    //     renderListing(coins[i]);
-    //     // return;
-    //   // } else if (value !== coins[i].id) {
-    //   //   renderListing(coin[i])
-    //   //   $searchDropDown.className = 'div-container ' + 'hidden';
-    //   // }
-    // }
-  // }
 });
 
 
-
-
-
-// $searchDropDown.addEventListener('click', function (event) {
-//   console.log(event.target);
-// });
-
-// mobile search
-// $mobileSearch.addEventListener('input', function (event) {
-//   // console.log('input listener');
-//   var value = event.target.value.toLowerCase();
-//   if (data.name.coins.length) {
-//     var coins = data.name.coins;
-//     // var filteredData = coins.filter(coin => coin.id === value);
-//     // console.log('filteredData', filteredData);
-//     for (var i = 0; i < data.name.coins.length; i++) {
-//       if (value === coins[i].id) {
-//         $mobileSearchDropdown.className = 'mobile-container';
-//         renderListingMobile(coins[i]);
-//         // console.log('match');
-//         return;
-
-//       } else if (value !== coins[i].id) {
-//         $mobileSearchDropdown.className = 'mobile-container ' + 'hidden';
-
-//       }
-//     }
-//   }
-
-// });
-
 var $coinDataPage = document.querySelector('.coin-data');
-// coinpage viewport desktop
-$searchDropDown.addEventListener('click', function (event) {
-  // console.log('click on', event.target);
 
+$searchDropDown.addEventListener('click', function (event) {
   var coins = data.name.coins;
   var coinName = document.querySelector('.coinName');
   var coinPriceChange = document.querySelector('.price-change');
@@ -290,41 +147,12 @@ $searchDropDown.addEventListener('click', function (event) {
       $coinDataPage.className = 'coin-data';
       $searchDropDown.className = 'div-container ' + 'hidden';
       $favListing.className = 'fav-list hide-faves hidden'
-      // console.log('data-id', $dataID);
     }
   }
   $favListing.className = 'fav-ul fav-list hide-faves hidden';
 });
 
 
-// $mobileSearchDropdown.addEventListener('click', function (event) {
-
-//   var coins = data.name.coins;
-//   var coinName = document.querySelector('.coinName');
-//   var coinPriceChange = document.querySelector('.price-change');
-//   var coinPrice = document.querySelector('.price');
-//   var coinVol = document.querySelector('.vol');
-//   var coinImage = document.querySelector('.coinImage');
-//   var $dataID = event.target.getAttribute('data-id');
-
-//   for (var i = 0; i < data.name.coins.length; i++) {
-//     if ($dataID === data.name.coins[i].id) {
-//       coinName.setAttribute('data-ID', coins[i].id);
-//       coinName.textContent = coins[i].name;
-//       coinImage.setAttribute('src', coins[i].icon);
-//       coinPriceChange.textContent = coins[i].priceChange1d;
-//       coinPrice.textContent = coins[i].price;
-//       coinVol.textContent = coins[i].volume;
-//       $searchModal.className = 'search-modal ' + 'hidden';
-//       $mobileUL.className = 'mobile-dropdown ' + 'hidden';
-//       $coinDataPage.className = 'coin-data';
-//       return;
-//     }
-//   }
-// });
-
-
-// render for fav list
 var $favUl = document.querySelector('.fav-list');
 
 function renderFavorites(coin) {
@@ -364,8 +192,7 @@ function renderFavorites(coin) {
 
 }
 
-// coins = paramether
-// pass in the xhr.response.coins[i] in it
+
 
 var $addToFav = document.querySelector('.add-to-fav');
 
@@ -392,21 +219,13 @@ $addToFav.addEventListener('click', function () {
 
       data.favorites.push(fav);
       data.nextEntryId++;
-      // console.log('match');
     }
   }
   $coinDataPage.className = 'coin-data ' + 'hidden';
   $newSection.className = 'row news'
-  // event.preventDefault();
 });
 
 
-
-// $addFavButton.className = 'col-half addToFavDiv';
-// $removeFavButton.className = 'col-half removeFavDiv hidden';
-
-
-// go home btn
 var $goHome = document.querySelector('.go-home');
 
 var $addFavButton = document.querySelector('.addToFavDiv');
@@ -453,7 +272,6 @@ $favoriteClick.addEventListener('click', function (event) {
       $addFavButton.className = 'col-half addToFavDiv hidden';
       $removeFavButton.className = 'col-half removeFavDiv';
 
-      // $addToFav.textContent = 'Remove from Favorites';
       return;
 
     }
@@ -471,14 +289,9 @@ $removeFavButton.addEventListener('click', function (event) {
 
 $cancelRemove.addEventListener('click', function (event) {
   $popUpModal.className = 'modal-container hidden';
-
-  console.log('clicked cancel');
-
 });
 
-// i added a entryId to the Li's to get the entry number to match the array entries in data.js
-// function on line 200
-// this the confirm button for the deleting. So far it is match the coin information.
+
 function updateDom(event) {
 
   $favUl.innerHTML = '';
@@ -490,21 +303,15 @@ function updateDom(event) {
 }
 
 $yesButton.addEventListener('click', function () {
-  console.log(event.target)
   var $entryId = event.target.getAttribute('entryId')
-  console.log("coin id is ", $entryId)
 
   $entryId = parseInt($entryId);
 
   for (var i = 0; i < data.favorites.length; i++) {
     if (data.favorites[i].entryId === $entryId) {
       data.editing = data.favorites[i];
-      console.log('data editing', data.editing);
       if(data.editing.entryId === data.favorites[i].entryId){
         data.favorites.splice(i, 1);
-
-
-
       }
     }
   }
@@ -522,7 +329,6 @@ $yesButton.addEventListener('click', function () {
   data.editing = null
 
 });
-
 
 
 function renderNews(news){
@@ -559,20 +365,7 @@ function renderNews(news){
 }
 
 
-
-
-// function renderingNews(){
-//   for (var i = 0; i < data.news.data.length; i++) {
-//     renderNews(data.news.data[i])
-//     console.log('render')
-//   }
-// }
-
-// window.onload = renderingNews(data.news.data)
-// renderingNews(data.news.data)
-
 document.addEventListener('DOMContentLoaded', function (event) {
-  // var $favUl = document.querySelector('.fav-list');
   renderingNews(data.news.data)
   for (var i = 0; i < data.favorites.length; i++) {
     renderFavorites(data.favorites[i]);
