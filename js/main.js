@@ -9,9 +9,26 @@ var $search = document.querySelector('.search-box');
 var $searchDropDown = document.querySelector('.div-container');
 var $mobileSearch = document.querySelector('.search-input');
 var $mobileSearchDropdown = document.querySelector('.mobile-container');
+
+const spinner = document.querySelector('.spinner')
 var $newSection = document.querySelector('.news')
 
+
+
+
+window.addEventListener('load', function(){
+  spinner.style.display = 'none'
+  function test() {
+    var coins = data.name.coins;
+    for (var i = 0; i < data.name.coins.length; i++) {
+      renderListing(coins[i]);
+    }
+  }
+  test()
+})
+
 // document.addEventListener('DOMContentLoaded', function () {
+
 
 // });
 
@@ -23,11 +40,15 @@ xhr.responseType = 'json';
 xhr.addEventListener('load', function () {
 
   data.name = xhr.response;
+  console.log(xhr.response)
 });
 
 xhr.send();
 
-// news XMLHttpRequest
+
+
+// news
+
 var xhr2 = new XMLHttpRequest();
 xhr2.open('GET', 'https://cryptonews-api.com/api/v1/category?section=general&items=10&token=115nzgq46bkciplsspiurjsbqrgsqy33fy4fjvee');
 xhr2.responseType = 'json';
@@ -49,6 +70,43 @@ function renderingNews() {
 }
 
 
+function renderNews(news) {
+  var $newsUl = document.querySelector('.news-list')
+  var $li = document.createElement('li');
+  $li.setAttribute('class', 'new-row news-post');
+
+  var $div = document.createElement('div');
+  $div.setAttribute('class', 'col-half');
+  $li.appendChild($div)
+
+  var $image = document.createElement('img');
+  $image.setAttribute('src', news.image_url);
+  $image.setAttribute('class', 'news-icon');
+  $div.appendChild($image)
+
+  var $div2 = document.createElement('div');
+  $div2.setAttribute('class', 'col-half');
+  $li.appendChild($div2)
+
+  var $title = document.createElement('h3');
+  $title.textContent = news.title;
+  $title.setAttribute('class', 'news-headline');
+  $div2.appendChild($title)
+
+  var $link = document.createElement('a');
+  $link.setAttribute('href', news.news_url);
+  $link.setAttribute('target', '_blank');
+  $link.textContent = 'Read Article'
+  $div2.appendChild($link)
+
+  $newsUl.appendChild($li)
+  return $li
+}
+
+
+
+
+
 
 // closing intro video
 $CloseVideo.addEventListener('click', function (event) {
@@ -61,20 +119,22 @@ $CloseVideo.addEventListener('click', function (event) {
 
 // to show search and cancel modal for search
 
-$searchIcon.addEventListener('click', function (event) {
-  $searchModal.className = 'search-modal';
-  $mobileUL.className = 'mobile-dropdown';
-  $favListing.className = 'fav-ul fav-list hide-faves ' + 'hidden';
-  $newSection.className = 'news ' + 'hidden'
 
-});
+// $searchIcon.addEventListener('click', function (event) {
+//   $searchModal.className = 'search-modal';
+//   $mobileUL.className = 'mobile-dropdown';
+//   $favListing.className = 'fav-ul fav-list hide-faves ' + 'hidden';
 
-$cancelSearch.addEventListener('click', function (event) {
-  $searchModal.className = 'search-modal ' + 'hidden';
-  $mobileUL.className = 'mobile-dropdown ' + 'hidden';
-  $favListing.className = 'fav-ul fav-list hide-faves';
-  $newSection.className = 'news'
-});
+
+// });
+
+
+// $cancelSearch.addEventListener('click', function (event) {
+//   $searchModal.className = 'search-modal ' + 'hidden';
+//   $mobileUL.className = 'mobile-dropdown ' + 'hidden';
+//   $favListing.className = 'fav-ul fav-list hide-faves';
+// });
+
 
 // renderFunction to create the DOM tree needed for search results
 var $ul = document.getElementById('search-ul');
@@ -112,26 +172,71 @@ function renderListingMobile(coin) {
 
 // listnening for the key press
 
-$search.addEventListener('input', function (event) {
+// $search.addEventListener('input', function (event) {
+//   // console.log(event.target);
+
+//   var value = event.target.value.toLowerCase();
+//   // console.log(value);
+//   if (data.name.coins.length) {
+//     var coins = data.name.coins;
+
+//     for (var i = 0; i < data.name.coins.length; i++) {
+//       if (value === coins[i].id) {
+//         // console.log('matches ID');
+//         renderListing(coins[i]);
+//         $searchDropDown.className = 'div-container';
+//         return;
+//       } else if (value !== coins[i].id) {
+//         renderListing(coin[i])
+//         $searchDropDown.className = 'div-container ' + 'hidden';
+//       }
+//     }
+//   }
+// });
+
+
+
+// function test (){
+//   var coins = data.name.coins;
+//   for (var i = 0; i < data.name.coins.length; i++) {
+//     renderListing(coins[i]);
+//   }
+// }
+// test()
+
+
+// new idea
+$search.addEventListener('click', function (event) {
   // console.log(event.target);
-
-  var value = event.target.value.toLowerCase();
+  // var value = event.target.value.toLowerCase();
   // console.log(value);
-  if (data.name.coins.length) {
-    var coins = data.name.coins;
+  // if (data.name.coins.length) {
+    // var coins = data.name.coins;
+  if ($searchDropDown.className === 'div-container hidden'){
+    $searchDropDown.className = "div-containe"
+    $addFavButton.className = 'col-half addToFavDiv';
+    $removeFavButton.className = 'col-half removeFavDiv hidden';
 
-    for (var i = 0; i < data.name.coins.length; i++) {
-      if (value === coins[i].id) {
-        // console.log('matches ID');
-        renderListing(coins[i]);
-        $searchDropDown.className = 'div-container';
-        return;
-      } else if (value !== coins[i].id) {
-        $searchDropDown.className = 'div-container ' + 'hidden';
-      }
-    }
+  } else {
+    $searchDropDown.className = "div-container hidden"
   }
+
+    // for (var i = 0; i < data.name.coins.length; i++) {
+    //   // if (value === coins[i].id) {
+    //     // console.log('matches ID');
+    //     renderListing(coins[i]);
+    //     // return;
+    //   // } else if (value !== coins[i].id) {
+    //   //   renderListing(coin[i])
+    //   //   $searchDropDown.className = 'div-container ' + 'hidden';
+    //   // }
+    // }
+  // }
 });
+
+
+
+
 
 // $searchDropDown.addEventListener('click', function (event) {
 //   console.log(event.target);
@@ -184,38 +289,40 @@ $searchDropDown.addEventListener('click', function (event) {
       coinVol.textContent = coins[i].volume;
       $coinDataPage.className = 'coin-data';
       $searchDropDown.className = 'div-container ' + 'hidden';
+      $favListing.className = 'fav-list hide-faves hidden'
       // console.log('data-id', $dataID);
     }
   }
   $favListing.className = 'fav-ul fav-list hide-faves hidden';
 });
 
-$mobileSearchDropdown.addEventListener('click', function (event) {
 
-  var coins = data.name.coins;
-  var coinName = document.querySelector('.coinName');
-  var coinPriceChange = document.querySelector('.price-change');
-  var coinPrice = document.querySelector('.price');
-  var coinVol = document.querySelector('.vol');
-  var coinImage = document.querySelector('.coinImage');
-  var $dataID = event.target.getAttribute('data-id');
+// $mobileSearchDropdown.addEventListener('click', function (event) {
 
-  for (var i = 0; i < data.name.coins.length; i++) {
-    if ($dataID === data.name.coins[i].id) {
-      coinName.setAttribute('data-ID', coins[i].id);
-      coinName.textContent = coins[i].name;
-      coinImage.setAttribute('src', coins[i].icon);
-      coinPriceChange.textContent = coins[i].priceChange1d;
-      coinPrice.textContent = coins[i].price;
-      coinVol.textContent = coins[i].volume;
-      $searchModal.className = 'search-modal ' + 'hidden';
-      $mobileUL.className = 'mobile-dropdown ' + 'hidden';
-      $coinDataPage.className = 'coin-data';
-      $newSection.className = 'row news hidden';
-      return;
-    }
-  }
-});
+//   var coins = data.name.coins;
+//   var coinName = document.querySelector('.coinName');
+//   var coinPriceChange = document.querySelector('.price-change');
+//   var coinPrice = document.querySelector('.price');
+//   var coinVol = document.querySelector('.vol');
+//   var coinImage = document.querySelector('.coinImage');
+//   var $dataID = event.target.getAttribute('data-id');
+
+//   for (var i = 0; i < data.name.coins.length; i++) {
+//     if ($dataID === data.name.coins[i].id) {
+//       coinName.setAttribute('data-ID', coins[i].id);
+//       coinName.textContent = coins[i].name;
+//       coinImage.setAttribute('src', coins[i].icon);
+//       coinPriceChange.textContent = coins[i].priceChange1d;
+//       coinPrice.textContent = coins[i].price;
+//       coinVol.textContent = coins[i].volume;
+//       $searchModal.className = 'search-modal ' + 'hidden';
+//       $mobileUL.className = 'mobile-dropdown ' + 'hidden';
+//       $coinDataPage.className = 'coin-data';
+//       return;
+//     }
+//   }
+// });
+
 
 // render for fav list
 var $favUl = document.querySelector('.fav-list');
@@ -266,8 +373,6 @@ var $favListing = document.querySelector('.hide-faves');
 
 $addToFav.addEventListener('click', function () {
   var $dataID = document.querySelector('.coinName').getAttribute('data-ID');
-  // console.log('click');
-  // console.log($dataID);
   for (var i = 0; i < xhr.response.coins.length; i++) {
     if ($dataID === xhr.response.coins[i].id) {
       renderFavorites(xhr.response.coins[i]);
@@ -294,6 +399,11 @@ $addToFav.addEventListener('click', function () {
   $newSection.className = 'row news'
   // event.preventDefault();
 });
+
+
+
+// $addFavButton.className = 'col-half addToFavDiv';
+// $removeFavButton.className = 'col-half removeFavDiv hidden';
 
 
 // go home btn
@@ -354,13 +464,14 @@ $favoriteClick.addEventListener('click', function (event) {
 });
 
 $removeFavButton.addEventListener('click', function (event) {
-  console.log('click');
   $popUpModal.className = 'modal-container';
-   $newSection.className = 'row news hidden'
+
+
 });
 
 $cancelRemove.addEventListener('click', function (event) {
   $popUpModal.className = 'modal-container hidden';
+
   console.log('clicked cancel');
 
 });
@@ -391,7 +502,6 @@ $yesButton.addEventListener('click', function () {
       console.log('data editing', data.editing);
       if(data.editing.entryId === data.favorites[i].entryId){
         data.favorites.splice(i, 1);
-        console.log('should be splicing')
 
 
 
