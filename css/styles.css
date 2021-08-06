@@ -9,17 +9,17 @@ a{
 header {
   color: #20cc7a;
   font-family: 'Rationale', sans-serif;
-  font-size: 48px;
+  font-size: 3rem;
   width: 50%;
 }
 
 .top-line {
   border-bottom: 1px solid black;
-  padding-bottom: 10px;
+  padding-bottom: .6rem;
 }
 
 .icon {
-    width: 50px;
+    /* width: 50px; */
     position: relative;
     left: 80%;
 }
@@ -33,7 +33,7 @@ header {
 .alert {
   background-color: #20cc7a;
   text-align: center;
-  margin-top: 10px;
+  margin-top: .5rem;
   border-radius: 10px;
   padding: 3px;
   font-family: 'rationale', sans-serif;
@@ -42,7 +42,7 @@ header {
 .use-search {
   background-color: #20cc7a;
   text-align: center;
-  margin-top: 10px;
+  margin-top: .5rem;
   border-radius: 10px;
   padding: 3px;
   font-family: 'rationale', sans-serif;
@@ -55,7 +55,7 @@ header {
   left: 50%;
   transform: translateX(-50%);
   font-family: 'rationale', sans-serif;
-  font-size: 24px;
+  font-size: 2rem;
   margin-top: 10px;
   padding: 5px 20px;
   border-radius: 10px;
@@ -108,17 +108,18 @@ header {
   width: 90%;
 } */
 
+/* adding to favorites */
 .go-home {
   background-color: red;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 1rem;
   padding: 15px;
   margin: 0 5px;
 }
 
 .add-to-fav {
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 1rem;
   padding: 15px;
 }
 
@@ -182,9 +183,10 @@ header {
   margin-bottom: 15px;
 }
 
+/* removing from favorites */
 .remove-fav {
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 1rem;
   padding: 15px;
   margin: 0 8px;
 }
@@ -208,7 +210,7 @@ header {
 .cancel,
 .yes {
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 1rem;
   padding: 15px;
   width: 150px;
 }
@@ -219,6 +221,7 @@ header {
   margin-bottom: 20px;
 }
 
+/* news section */
 .news {
 
   text-align: center;
@@ -238,7 +241,7 @@ header {
 .new-headlines > h3{
     font-family: 'rationale', sans-serif;
     border: 1pc solid red;
-    padding: 5px;
+    padding: .4rem;
 
 }
 
