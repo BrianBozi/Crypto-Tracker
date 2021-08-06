@@ -103,6 +103,7 @@ a{
 
 /* add media */
 .favorite-list > ul {
+
   width: 97%;
   position: relative;
   left: 50%;
@@ -159,6 +160,7 @@ a{
   }
 }
 
+
 .fav-icon {
   position: relative;
   top: 17px;
@@ -211,6 +213,7 @@ a{
 }
 
 .news {
+
   text-align: center;
   font-family: 'rationale', sans-serif;
   font-size: 1rem;
@@ -232,6 +235,7 @@ a{
     border: 1pc solid red;
 
 }
+
 .news-post{
   position: relative;
   left: 48%;
@@ -240,6 +244,7 @@ a{
   border-radius: 10px;
   margin-bottom: 17px;
   background-color: white;
+
   margin-top: 15px;
 }
 
@@ -287,3 +292,4 @@ a{
      width: 65%;
    }
 }
+
