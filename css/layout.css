@@ -43,12 +43,7 @@ header {
     color: #20cc7a;
     height: 42px;
     width: 42px;
-    /* position: relative;
-    left: 90%;
-    display: show; */
   }
-
-
 
 
 .div-container {
@@ -93,24 +88,11 @@ ul {
   border-bottom: 1px solid black;
 }
 
-/* coin data page */
 
 .new-row {
   display: flex;
 }
 
-/* .coin-data {
-  font-family: 'Russo one', sans-serif;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: #ededed;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  width: 50%;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-} */
 
 .col-half {
   flex-basis: calc(100% / 2);
@@ -231,4 +213,3 @@ button,
      left: 67%;
    }
  }
-

@@ -88,6 +88,7 @@ a{
   border-radius: 10px;
   font-size: 18px;
   padding: 15px;
+  margin: 0 5px;
 }
 
 .addToFav {
@@ -153,7 +154,6 @@ a{
   border: 1px solid black;
   padding:10px;
   background-color: white;
-  /* margin: 10px; */
   border-radius: 10px;
   margin-bottom: 15px;
 }
@@ -162,8 +162,8 @@ a{
   border-radius: 10px;
   font-size: 18px;
   padding: 15px;
-  width: 175px;
-
+  /* width: 175px; */
+  margin: 0 8px;
 }
 
 .modal-container {
@@ -209,7 +209,6 @@ a{
     left: 50%;
     transform: translate(-50%);
     margin-top: 30px;
-    /* margin-left: 10px; */
 }
 
 
@@ -279,20 +278,3 @@ a{
     width: 65%;
   }
 }
-
-
-/* @media screen and (min-width: 550px){
- .news{
-   width: 110%;
- }
-
- .news-post{
-   width: 95%;
- }
-
- .news-headline{
-   padding: 5px;
- }
-
-} */
-
