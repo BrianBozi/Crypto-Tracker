@@ -37,3 +37,4 @@ If you want to mess around with the code, then follow the following steps.
     ``` git clone git@github.com:BrianBozi/Crypto-Tracker.git```
 2. cd into Crypto-Tracker
 3. Open the index.html file in browser and enjoy! 
+(if you would like to use the built in linter then use ```npm run ci```)
