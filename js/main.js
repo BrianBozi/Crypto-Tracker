@@ -243,28 +243,28 @@ $search.addEventListener('click', function (event) {
 // });
 
 // mobile search
-$mobileSearch.addEventListener('input', function (event) {
-  // console.log('input listener');
-  var value = event.target.value.toLowerCase();
-  if (data.name.coins.length) {
-    var coins = data.name.coins;
-    // var filteredData = coins.filter(coin => coin.id === value);
-    // console.log('filteredData', filteredData);
-    for (var i = 0; i < data.name.coins.length; i++) {
-      if (value === coins[i].id) {
-        $mobileSearchDropdown.className = 'mobile-container';
-        renderListingMobile(coins[i]);
-        // console.log('match');
-        return;
+// $mobileSearch.addEventListener('input', function (event) {
+//   // console.log('input listener');
+//   var value = event.target.value.toLowerCase();
+//   if (data.name.coins.length) {
+//     var coins = data.name.coins;
+//     // var filteredData = coins.filter(coin => coin.id === value);
+//     // console.log('filteredData', filteredData);
+//     for (var i = 0; i < data.name.coins.length; i++) {
+//       if (value === coins[i].id) {
+//         $mobileSearchDropdown.className = 'mobile-container';
+//         renderListingMobile(coins[i]);
+//         // console.log('match');
+//         return;
 
-      } else if (value !== coins[i].id) {
-        $mobileSearchDropdown.className = 'mobile-container ' + 'hidden';
+//       } else if (value !== coins[i].id) {
+//         $mobileSearchDropdown.className = 'mobile-container ' + 'hidden';
 
-      }
-    }
-  }
+//       }
+//     }
+//   }
 
-});
+// });
 
 var $coinDataPage = document.querySelector('.coin-data');
 // coinpage viewport desktop
@@ -367,7 +367,7 @@ function renderFavorites(coin) {
 // coins = paramether
 // pass in the xhr.response.coins[i] in it
 
-var $addToFav = document.querySelector('.addToFav');
+var $addToFav = document.querySelector('.add-to-fav');
 
 var $favListing = document.querySelector('.hide-faves');
 
@@ -407,7 +407,7 @@ $addToFav.addEventListener('click', function () {
 
 
 // go home btn
-var $goHome = document.querySelector('.goHome');
+var $goHome = document.querySelector('.go-home');
 
 var $addFavButton = document.querySelector('.addToFavDiv');
 var $removeFavButton = document.querySelector('.removeFavDiv');
