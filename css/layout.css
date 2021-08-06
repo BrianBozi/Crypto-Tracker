@@ -8,9 +8,10 @@
   position: relative;
   left: 80%;
 }
-  .favorite-list > ul {
-    width: 65%;
-  }
+
+.favorite-list > ul {
+    idth: 65%;
+}
 
 ul {
   border: 1px solid black;

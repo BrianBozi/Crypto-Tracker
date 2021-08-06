@@ -19,19 +19,19 @@ header {
 }
 
 .icon {
-    position: relative;
-    left: 80%;
+  position: relative;
+  left: 80%;
 }
 
 .iconify {
-    color: #20cc7a;
-    height: 42px;
-    width: 42px;
-  }
+  color: #20cc7a;
+  height: 42px;
+  width: 42px;
+}
 
-  .search-box{
-    width: 80px
-  }
+.search-box{
+  width: 80px
+}
 
 .alert {
   background-color: #20cc7a;
@@ -192,12 +192,12 @@ header {
   font-size: 1rem;
   border-bottom: 1px solid black;
   text-align: center;
-    font-size: 2rem;
-    width: 110%;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    margin-top: 1.6rem;
+  font-size: 2rem;
+  width: 110%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 1.6rem;
 }
 
 
