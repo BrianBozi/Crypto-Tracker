@@ -143,6 +143,7 @@ a{
   }
 }
 
+
 .fav-icon {
   position: relative;
   top: 17px;
@@ -196,6 +197,7 @@ a{
 }
 
 .news {
+
   text-align: center;
   font-family: 'rationale', sans-serif;
   font-size: 1rem;
@@ -217,6 +219,7 @@ a{
     padding: 5px;
 
 }
+
 .news-post{
   position: relative;
   left: 50%;
@@ -225,6 +228,7 @@ a{
   border-radius: 10px;
   margin-bottom: 17px;
   background-color: white;
+
   margin-top: 15px;
   width: 95%;
 }
@@ -276,6 +280,7 @@ a{
   }
 }
 
+
 /* @media screen and (min-width: 550px){
  .news{
    width: 110%;
@@ -290,3 +295,4 @@ a{
  }
 
 } */
+

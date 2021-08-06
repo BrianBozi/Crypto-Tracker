@@ -60,6 +60,7 @@ header {
   }
 
 
+
 ul {
   border: 1px solid black;
   font-family: 'Russo one', sans-serif;
@@ -72,6 +73,7 @@ ul {
   list-style: none;
   padding-bottom: 10px;
 }
+
 
 .li-icon {
   width: 10%;
@@ -123,6 +125,7 @@ ul {
   margin-right: auto;
   margin-top: 15px;
 }
+
 
 button,
 .fav-list,
@@ -228,3 +231,4 @@ button,
      left: 67%;
    }
  }
+
