@@ -103,11 +103,11 @@ a{
 
 /* add media */
 .favorite-list > ul {
-  width: 97%;
+  width: 110%;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  padding: 5px;
+  /* padding: 5px; */
   border: 1px solid grey;
   background-color: azure;
 }
@@ -129,23 +129,7 @@ a{
   transform: translateX(-50%);
 }
 
-/* @media (min-width: 765px){
-  .favorite-list > ul {
-      width: 65%;
-  }
-
-  .coin-data{
-    width: 65%;
-  }
-
-  .news{
-    width: 99%;
-   }
-
-   .news-post{
-    font-size: 1rem;
-   }
-} */
+/
 
 @media (min-width: 749px) {
   .search-bar{
@@ -168,8 +152,9 @@ a{
   border: 1px solid black;
   padding:10px;
   background-color: white;
-  margin: 10px;
+  /* margin: 10px; */
   border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 .removeFav {
@@ -215,32 +200,33 @@ a{
   font-family: 'rationale', sans-serif;
   font-size: 1rem;
   border-bottom: 1px solid black;
-
   text-align: center;
     font-size: 2rem;
-    width: 99%;
+    width: 110%;
     position: relative;
     left: 50%;
     transform: translate(-50%);
     margin-top: 30px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 
 .new-headlines > h3{
     font-family: 'rationale', sans-serif;
     border: 1pc solid red;
+    padding: 5px;
 
 }
 .news-post{
   position: relative;
-  left: 48%;
+  left: 50%;
   transform: translateX(-50%);
   border: 1px solid black;
   border-radius: 10px;
   margin-bottom: 17px;
   background-color: white;
   margin-top: 15px;
+  width: 95%;
 }
 
 .news-icon{
@@ -250,6 +236,7 @@ a{
 
 .news-headline{
   font-size: 1rem;
+  padding: 5px;
 }
 
 .news-list > ul{
@@ -257,18 +244,19 @@ a{
   border-radius: 10px;
   width: 100%;
   position: absolute;
+
 }
 
 .news-list{
   background-color: #F0FFFF;
   width: 99%;
+  padding: 0;
 }
-
 
 
 @media (min-width: 765px){
   .favorite-list > ul {
-      width: 65%;
+    width: 65%;
   }
 
   .coin-data{
@@ -277,13 +265,28 @@ a{
 
   .news{
     width: 65%;
-   }
+  }
 
-   .news-post{
+  .news-post{
     font-size: 1rem;
-   }
+  }
 
-   .news-icon{
-     width: 65%;
-   }
+  .news-icon{
+    width: 65%;
+  }
 }
+
+/* @media screen and (min-width: 550px){
+ .news{
+   width: 110%;
+ }
+
+ .news-post{
+   width: 95%;
+ }
+
+ .news-headline{
+   padding: 5px;
+ }
+
+} */
