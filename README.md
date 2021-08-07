@@ -32,7 +32,7 @@ If you want to mess around with the code, then follow the following steps.
 ### Sysytem Requiremnts 
 - VSCODE or any IDE that support Javascript
 
-##Cloning the Repository
+## Cloning the Repository
 1. clone the repository. 
     ``` git clone git@github.com:BrianBozi/Crypto-Tracker.git```
 2. cd into Crypto-Tracker
