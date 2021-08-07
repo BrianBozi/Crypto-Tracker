@@ -33,7 +33,7 @@ If you want to mess around with the code, then follow the following steps.
 - VSCODE or any IDE that support Javascript
 
 ## Cloning the Repository
-1. clone the repository. 
+1. Clone the repository. 
     ``` git clone git@github.com:BrianBozi/Crypto-Tracker.git```
 2. cd into Crypto-Tracker
 3. Open the index.html file in browser and enjoy! 
