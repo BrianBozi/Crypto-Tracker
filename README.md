@@ -29,7 +29,7 @@ Try the application at <http://brianbozi.github.io/crypto-tracker/>
 ## Getting Started
 To use Crypto simply  click the above and you'll be ready to use the app.
 If you want to mess around with the code, then follow the following steps.
-### Sysytem Requiremnts 
+### System Requirements 
 - VSCODE or any IDE that support Javascript
 
 ## Cloning the Repository
